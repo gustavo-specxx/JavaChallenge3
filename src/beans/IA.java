@@ -6,7 +6,7 @@ public class IA {
     public void selecionarModal() {
         switch (Sinistro.getDigitoSinistro()) {
             case "1":
-                setModalSelecionado("Guincho Plataforma");
+                setModalSelecionado("Guincho Plataformaaaaa");
                 break;
             case "2":
                 setModalSelecionado("Guincho Especializado");

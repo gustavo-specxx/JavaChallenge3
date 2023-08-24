@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author gusta
- *
- */
-module JavaChallenge {
-}

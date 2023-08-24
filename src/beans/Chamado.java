@@ -1,7 +1,6 @@
 package beans;
 
 import java.util.Date;
-import main.Segurado;
 
 public class Chamado {
     private static Date horaAtual = new Date();
@@ -27,8 +26,8 @@ public class Chamado {
         System.out.println("----------------------------------------------");
 
         System.out.println("Essas são as informações da carga:");
-        System.out.println("Peso da carga: " + Carga.getPesoCarga());
-        System.out.println("Tipo de carga: " + Carga.getTipoCarga());
+       /* System.out.println("Peso da carga: " + Carga.getPesoCarga());
+        System.out.println("Tipo de carga: " + Carga.getTipoCarga());*/
         System.out.println("----------------------------------------------");
 
         IA ia = new IA();

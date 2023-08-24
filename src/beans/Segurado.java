@@ -1,11 +1,6 @@
-package main;
+package beans;
 
 import java.util.Scanner;
-import beans.Carga;
-import beans.Chamado;
-import beans.Local;
-import beans.Sinistro;
-import beans.Veiculo;
 
 public class Segurado {
 

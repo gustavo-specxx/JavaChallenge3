@@ -4,9 +4,9 @@ public class IA {
     private static String modalSelecionado;
 
     public void selecionarModal() {
-        switch (Sinistro.getDigitoSinistro()) {
+        switch (Sinistro.getDigitoSinistro()) { 
             case "1":
-                setModalSelecionado("Guincho Plataformaaaaaaaaaaa");
+                setModalSelecionado("Guincho Plataforma");
                 break;
             case "2":
                 setModalSelecionado("Guincho Especializado");

@@ -1,25 +1,25 @@
 package beans;
 
 public class Carga {
-    private static String pesoCarga;
-    private static String tipoCarga;
-    
+    private String pesoCarga;
+    private String tipoCarga;
+
     public Carga() {
     }
 
-    public static String getPesoCarga() {
+    public String getPesoCarga() {
         return pesoCarga;
     }
 
     public void setPesoCarga(String pesoCarga) {
-        Carga.pesoCarga = pesoCarga;
+        this.pesoCarga = pesoCarga;
     }
 
-    public static String getTipoCarga() {
+    public String getTipoCarga() {
         return tipoCarga;
     }
 
     public void setTipoCarga(String tipoCarga) {
-        Carga.tipoCarga = tipoCarga;
+        this.tipoCarga = tipoCarga;
     }
 }

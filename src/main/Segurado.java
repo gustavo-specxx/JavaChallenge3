@@ -8,8 +8,10 @@ import beans.Sinistro;
 import beans.Veiculo;
 
 public class Segurado {
+
     private static String nomeSegurado;
     private static String cpf;
+	private static Local umLocal;
 
     public Segurado(String nomeSegurado, String cpf) {
         Segurado.nomeSegurado = nomeSegurado;
@@ -26,18 +28,23 @@ public class Segurado {
         Veiculo umVeiculo = new Veiculo("", 0, 0, "", 0, "");
         Sinistro umSinistro = new Sinistro();
         Carga umaCarga = new Carga();
+        setUmLocal(new Local());
+
         umVeiculo.setNomeVeiculo("Onix");
         umVeiculo.setAno(2015);
         umVeiculo.setPeso(2.7);
         umVeiculo.setAltura(1.43);
         umVeiculo.setChassi("948728759873");
 
+        umaCarga.setPesoCarga("68.3");
+        umaCarga.setTipoCarga("Arroz");
+
         if (cpf == null || cpf.isEmpty()) {
             System.out.println("Insira seu CPF:");
             cpf = leitor.nextLine();
         }
 
-        if (Sinistro.getDigitoSinistro() == null || Sinistro.getDigitoSinistro().isEmpty()) {
+        if (umSinistro.getDigitoSinistro() == null || umSinistro.getDigitoSinistro().isEmpty()) {
             System.out.println("Digite o número de acordo com a sua situação:\n[1]Batida [2]Pane Elétrica [3]Desastres Naturais");
             umSinistro.setDigitoSinistro(leitor.nextLine());
             umSinistro.escolhaSinistro();
@@ -48,7 +55,7 @@ public class Segurado {
             umVeiculo.setPlaca(leitor.nextLine());
         }
 
-        if (Carga.getPesoCarga() == null || Carga.getPesoCarga().isEmpty()) {
+        if (umaCarga.getPesoCarga() == null || umaCarga.getPesoCarga().isEmpty()) {
             System.out.println("Insira o peso da carga:");
             umaCarga.setPesoCarga(leitor.nextLine());
         }
@@ -69,13 +76,13 @@ public class Segurado {
         }
 
         if (Local.getCep() == null || Local.getCep().isEmpty()) {
-            System.out.println("Qual é o CEP?:");
+            System.out.println("Qual é o cep?:");
             Local.setCep(leitor.nextLine());
         }
 
         Chamado.retornarInformacoes();
 
-        leitor.close(); // Fechando o Scanner para evitar vazamento de recursos
+        leitor.close();
     }
 
     public static String getNomeSegurado() {
@@ -85,4 +92,12 @@ public class Segurado {
     public static String getCpf() {
         return cpf;
     }
+
+	public static Local getUmLocal() {
+		return umLocal;
+	}
+
+	public static void setUmLocal(Local umLocal) {
+		Segurado.umLocal = umLocal;
+	}
 }

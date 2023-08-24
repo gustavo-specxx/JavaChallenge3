@@ -1,12 +1,12 @@
 package beans;
 
 public class Sinistro {
-    public static String digitoSinistro;
-    public static String sinistroEscolhido = "";
-    
+    private String digitoSinistro;
+    private static String sinistroEscolhido = "";
+
     public Sinistro() {
     }
-    
+
     public void escolhaSinistro() {
         switch (digitoSinistro) {
             case "1":
@@ -21,12 +21,12 @@ public class Sinistro {
         }
     }
 
-    public static String getDigitoSinistro() {
+    public String getDigitoSinistro() {
         return digitoSinistro;
     }
 
     public void setDigitoSinistro(String digitoSinistro) {
-        Sinistro.digitoSinistro = digitoSinistro;
+        this.digitoSinistro = digitoSinistro;
     }
 
     public static String getSinistroEscolhido() {

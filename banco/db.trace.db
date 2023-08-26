@@ -1,0 +1,144 @@
+2023-08-24 02:55:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Constraint "PRIMARY KEY | UNIQUE (ID_SEGURADO)" not found; SQL statement:
+ALTER TABLE tb_psg_veiculo
+  ADD CONSTRAINT tb_psg_veiculo_id_segurado_fk FOREIGN KEY ( tb_psg_segurado_id_segurado )
+    REFERENCES tb_psg_segurado ( id_segurado ) [90057-220]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:259)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:74)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:188)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+2023-08-26 13:33:18 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TB_PSG_ORDEM_SERVICO" already exists; SQL statement:
+CREATE TABLE tb_psg_ordem_servico (
+  id_ordem_servico                        NUMBER NOT NULL,
+  tipo_sinistro                           VARCHAR2(3000) NOT NULL,
+  data_sinistro                           DATE NOT NULL,
+  tb_psg_segurado_id_segurado             NUMBER NOT NULL,
+  descricao_sinistro                      VARCHAR2(3000) NOT NULL,
+  tb_psg_apol_s_id_apol_s                 NUMBER NOT NULL, 
+  tb_psg_local_sini_id_local_sini         NUMBER NOT NULL
+) [42101-220]
+2023-08-26 13:33:50 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE tb_psg_ordem_servico (\000d\000a  id_ordem_servico                        NUMBER NOT NULL,\000d\000a  tipo_sinistro                           VARCHAR2(3000) NOT NULL,\000d\000a  data_sinistro                           DATE NOT NULL,\000d\000a  docto_segurado             NUMBER NOT NULL,\000d\000a  descricao_sinistro                      VARCHAR2(3000) NOT NULL,[*])"; expected "identifier"; SQL statement:
+CREATE TABLE tb_psg_ordem_servico (
+  id_ordem_servico                        NUMBER NOT NULL,
+  tipo_sinistro                           VARCHAR2(3000) NOT NULL,
+  data_sinistro                           DATE NOT NULL,
+  docto_segurado             NUMBER NOT NULL,
+  descricao_sinistro                      VARCHAR2(3000) NOT NULL,) [42001-220]
+2023-08-26 13:33:50 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TB_PSG_ORDEM_SERVICO" not found; SQL statement:
+drop table tb_psg_ordem_servico [42102-220]
+2023-08-26 13:34:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE tb_psg_ordem_servico (\000d\000a  id_ordem_servico                        NUMBER NOT NULL,\000d\000a  tipo_sinistro                           VARCHAR2(3000) NOT NULL,\000d\000a  data_sinistro                           DATE NOT NULL,\000d\000a  docto_segurado             NUMBER NOT NULL,\000d\000a  descricao_sinistro                      VARCHAR2(3000) NOT NULL,[*])"; expected "identifier"; SQL statement:
+CREATE TABLE tb_psg_ordem_servico (
+  id_ordem_servico                        NUMBER NOT NULL,
+  tipo_sinistro                           VARCHAR2(3000) NOT NULL,
+  data_sinistro                           DATE NOT NULL,
+  docto_segurado             NUMBER NOT NULL,
+  descricao_sinistro                      VARCHAR2(3000) NOT NULL,) [42001-220]
+2023-08-26 13:34:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE tb_psg_ordem_servico (\000d\000a  id_ordem_servico                        NUMBER NOT NULL,\000d\000a  tipo_sinistro                           VARCHAR2(3000) NOT NULL,\000d\000a  data_sinistro                           DATE NOT NULL,\000d\000a  docto_segurado             NUMBER NOT NULL,\000d\000a  descricao_sinistro                      VARCHAR2(3000) NOT NULL,[*])"; expected "identifier"; SQL statement:
+CREATE TABLE tb_psg_ordem_servico (
+  id_ordem_servico                        NUMBER NOT NULL,
+  tipo_sinistro                           VARCHAR2(3000) NOT NULL,
+  data_sinistro                           DATE NOT NULL,
+  docto_segurado             NUMBER NOT NULL,
+  descricao_sinistro                      VARCHAR2(3000) NOT NULL,) [42001-220]
+2023-08-26 13:34:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TB_PSG_ORDEM_SERVICO" not found; SQL statement:
+drop table tb_psg_ordem_servico [42102-220]
+2023-08-26 14:14:27 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]desc TB_PSG_ORDEM_SERVICO"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+desc TB_PSG_ORDEM_SERVICO [42001-220]
+2023-08-26 14:14:39 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]desc TB_PSG_ORDEM_SERVICO"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+desc TB_PSG_ORDEM_SERVICO [42001-220]
+2023-08-26 14:20:36 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]desc TB_PSG_ORDEM_SERVICO"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+desc TB_PSG_ORDEM_SERVICO [42001-220]
+2023-08-26 14:20:36 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table TB_PSG_ORDEM_SERVICO \000d\000a[*]CREATE TABLE tb_psg_ordem_servico (\000d\000a  id_ordem_servico                        NUMBER NOT NULL,\000d\000a  tipo_sinistro                           NUMBER NOT NULL,\000d\000a  data_sinistro                           DATE NOT NULL,\000d\000a  tb_psg_segurado_id_segurado             NUMBER NOT NULL,\000d\000a  descricao_sinistro                      VARCHAR2(3000) NOT NULL,\000d\000a  tb_psg_apol_s_id_apol_s                 NUMBER NOT NULL, \000d\000a  tb_psg_local_sini_id_local_sini         NUMBER NOT NULL\000d\000a)"; SQL statement:
+drop table TB_PSG_ORDEM_SERVICO 
+CREATE TABLE tb_psg_ordem_servico (
+  id_ordem_servico                        NUMBER NOT NULL,
+  tipo_sinistro                           NUMBER NOT NULL,
+  data_sinistro                           DATE NOT NULL,
+  tb_psg_segurado_id_segurado             NUMBER NOT NULL,
+  descricao_sinistro                      VARCHAR2(3000) NOT NULL,
+  tb_psg_apol_s_id_apol_s                 NUMBER NOT NULL, 
+  tb_psg_local_sini_id_local_sini         NUMBER NOT NULL
+) [42000-220]
+2023-08-26 14:20:39 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]desc TB_PSG_ORDEM_SERVICO"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+desc TB_PSG_ORDEM_SERVICO [42001-220]
+2023-08-26 14:20:39 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "drop table TB_PSG_ORDEM_SERVICO \000d\000a[*]CREATE TABLE tb_psg_ordem_servico (\000d\000a  id_ordem_servico                        NUMBER NOT NULL,\000d\000a  tipo_sinistro                           NUMBER NOT NULL,\000d\000a  data_sinistro                           DATE NOT NULL,\000d\000a  tb_psg_segurado_id_segurado             NUMBER NOT NULL,\000d\000a  descricao_sinistro                      VARCHAR2(3000) NOT NULL,\000d\000a  tb_psg_apol_s_id_apol_s                 NUMBER NOT NULL, \000d\000a  tb_psg_local_sini_id_local_sini         NUMBER NOT NULL\000d\000a)"; SQL statement:
+drop table TB_PSG_ORDEM_SERVICO 
+CREATE TABLE tb_psg_ordem_servico (
+  id_ordem_servico                        NUMBER NOT NULL,
+  tipo_sinistro                           NUMBER NOT NULL,
+  data_sinistro                           DATE NOT NULL,
+  tb_psg_segurado_id_segurado             NUMBER NOT NULL,
+  descricao_sinistro                      VARCHAR2(3000) NOT NULL,
+  tb_psg_apol_s_id_apol_s                 NUMBER NOT NULL, 
+  tb_psg_local_sini_id_local_sini         NUMBER NOT NULL
+) [42000-220]
+2023-08-26 14:21:09 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE tb_psg_ordem_servico (\000d\000a  id_ordem_servico                        NUMBER NOT NULL,\000d\000a  tipo_sinistro                           NUMBER NOT NULL,\000d\000a  data_sinistro                           DATE,\000d\000a  docto_segurado             NUMBER NOT NULL,\000d\000a  descricao_sinistro                      VARCHAR2(3000) NOT NULL,\000d\000a[*])"; expected "identifier"; SQL statement:
+CREATE TABLE tb_psg_ordem_servico (
+  id_ordem_servico                        NUMBER NOT NULL,
+  tipo_sinistro                           NUMBER NOT NULL,
+  data_sinistro                           DATE,
+  docto_segurado             NUMBER NOT NULL,
+  descricao_sinistro                      VARCHAR2(3000) NOT NULL,
+) [42001-220]
+2023-08-26 14:41:17 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]a"; expected "ALTER, ANALYZE"; SQL statement:
+a [42001-220]
+2023-08-26 15:01:49 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TB_PSG_ORDEM_SERVICO" already exists; SQL statement:
+CREATE TABLE tb_psg_ordem_servico (
+  id_ordem_servico                        NUMBER NOT NULL,
+  tipo_sinistro                           NUMBER NOT NULL,
+  data_sinistro                           DATE,
+ hora_sinistro timestamp,
+  docto_segurado             NUMBER NOT NULL,
+  descricao_sinistro                      VARCHAR2(3000) NOT NULL
+) [42101-220]
+2023-08-26 15:29:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "TIPO_SINSITRO" not found; SQL statement:
+Insert into TB_PSG_ORDEM_SERVICO (TIPO_SINSITRO,DESCRICAO_SINISTRO, DOCTO_SEGURADO) VALUES (?,?,?) [42122-220]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1300)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1285)
+	at org.h2.command.Parser.parseInsert(Parser.java:1672)
+	at org.h2.command.Parser.parsePrepared(Parser.java:822)
+	at org.h2.command.Parser.parse(Parser.java:697)
+	at org.h2.command.Parser.parse(Parser.java:669)
+	at org.h2.command.Parser.prepareCommand(Parser.java:577)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:634)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:557)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:92)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at beans.ChamadoDAO.insereChamado(ChamadoDAO.java:19)
+	at main.GerenciamentoSinistros.main(GerenciamentoSinistros.java:62)

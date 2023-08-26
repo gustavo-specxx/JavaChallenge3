@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import conn.ConnectionFactory;
-
 public class VeiculoDAO {
 	
 	
@@ -13,13 +11,21 @@ public class VeiculoDAO {
 		
 		Connection conn = new ConnectionFactory().criaConexao();
 		
-		String sqlInsert = "Insert into tb_x values ( )";
+		String sqlInsert = "Insert into tb_psg_veiculo(placa_veiculo,"
+				+ ",estado_veiculo"
+				+ ",especificacoes_veiculo"
+				+ ","
+				+ ""
+				+ ""
+				+ " values ( )";
 		
 		try {
 			
 			PreparedStatement insereVeiculo =  conn.prepareStatement(sqlInsert);
 			
-			insereVeiculo.setString(1, veiculo.getNomeVeiculo());
+			insereVeiculo.setString(1, veiculo.getPlaca());
+			insereVeiculo.setString(2,veiculo.getChassi());
+			
 			
 			
 			insereVeiculo.execute();

@@ -1,11 +1,6 @@
-package main;
+package beans;
 
 import java.util.Scanner;
-import beans.Carga;
-import beans.Chamado;
-import beans.Local;
-import beans.Sinistro;
-import beans.Veiculo;
 
 public class Segurado {
 
@@ -17,10 +12,8 @@ public class Segurado {
         Segurado.nomeSegurado = nomeSegurado;
         Segurado.cpf = cpf;
     }
-
-    public static void main(String[] args) {
-        abrirChamado();
-    }
+    
+   // public Segurado() {};
 
     static void abrirChamado() {
         Scanner leitor = new Scanner(System.in);
@@ -80,7 +73,7 @@ public class Segurado {
             Local.setCep(leitor.nextLine());
         }
 
-        Chamado.retornarInformacoes();
+     //   Chamado.retornarInformacoes();
 
         leitor.close();
     }

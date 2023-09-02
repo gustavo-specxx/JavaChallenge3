@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import beans.Chamado;
@@ -18,8 +19,9 @@ public class GerenciamentoSinistros {
 			
 		/*INSERIR MENU*/
 		
-		Segurado novoSegurado = new Segurado("André","12345678910");
-		
+		 Segurado novoSegurado = new Segurado("André","12345678910");
+		 String documentoSegurado = "12345678910";
+		 
 			Scanner scan = new Scanner(System.in);
 		
 		/*System.out.println("Digite a hora do ocorrido");
@@ -31,9 +33,6 @@ public class GerenciamentoSinistros {
 		
 		System.out.println("Nos dê uma descrição do que ocorreu");
 		String descricaoChamado = scan.next();
-		
-		System.out.println("Digite o cpf do segurado");
-		String documentoSegurado = scan.next();
 		
 		System.out.println("Digite o horário do acidente formato(HH:mm)");
 		String horaSinistro = scan.next();
@@ -52,7 +51,8 @@ public class GerenciamentoSinistros {
 	             
 	        } catch (Exception e) {
 	            validaData = false;
-	            throw new Exception(e.getMessage());
+	            System.out.println("Digite um formato de hora Válido");
+	            //throw new Exception(e.getMessage());
 	        }
 		   }
 		   
@@ -60,7 +60,15 @@ public class GerenciamentoSinistros {
 		   
 		 ChamadoDAO chamadoDAO = new ChamadoDAO();
 		 chamadoDAO.insereChamado(novoChamado);
-		
+		 
+		 ArrayList<Chamado> os = chamadoDAO.retornaChamados(documentoSegurado);
+		 
+		 for(Chamado chamados: os) {
+			 System.out.println("Descrição do chamado: " + chamados.getDescricaoChamado());
+			 System.out.println(chamados.getTipoSinistro());
+			 
+		 }
+		 
 		
 	}
 

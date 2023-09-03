@@ -61,6 +61,39 @@ public class ChamadoDAO {
 		return chamados;	
 	}
 	
+	public int validaChamado(String documentoSegurado) {
+		
+		String sqlSelect = "select count(1) from tb_psg_ordem_servico where docto_segurado = ? and status_os  != 'E'"; 
+		
+		int existeChamadoAberto;
+		
+		try {
+			PreparedStatement query = conn.prepareStatement(sqlSelect);
+			query.setString(1, documentoSegurado);
+						
+			ResultSet rs =  query.executeQuery();
+			
+			while(rs.next()) {
+			existeChamadoAberto = rs.getInt(1);
+				if(existeChamadoAberto == 0) {
+					return 0;
+					
+				}else {
+					return 1;	
+				}							
+			}
+	
+			
+		}catch(SQLException e) {
+			throw new RuntimeException(e.getMessage());
+			
+		}
+		return 0;
+		
+	}
+	
+	
+	
 	public void fechaConexao() {
 		try{
 			conn.close();

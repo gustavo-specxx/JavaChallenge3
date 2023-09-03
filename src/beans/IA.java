@@ -3,8 +3,8 @@ package beans;
 public class IA {
     private static String modalSelecionado;
 
-    public void selecionarModal() {
-        switch (Sinistro.getDigitoSinistro()) { 
+    public void selecionarModal(Sinistro sinistro) {
+        switch (sinistro.getDigitoSinistro()) { 
             case "1":
                 setModalSelecionado("Guincho Plataforma");
                 break;

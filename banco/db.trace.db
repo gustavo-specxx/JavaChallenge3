@@ -142,3 +142,49 @@ Insert into TB_PSG_ORDEM_SERVICO (TIPO_SINSITRO,DESCRICAO_SINISTRO, DOCTO_SEGURA
 	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
 	at beans.ChamadoDAO.insereChamado(ChamadoDAO.java:19)
 	at main.GerenciamentoSinistros.main(GerenciamentoSinistros.java:62)
+2023-08-27 18:39:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table tb_psg_ordem_servico [*]modify docto_segurado (varchar2(300))"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+alter table tb_psg_ordem_servico modify docto_segurado (varchar2(300)) [42001-220]
+2023-08-27 18:40:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "alter table tb_psg_ordem_servico [*]modify column docto_segurado (varchar2(300))"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+alter table tb_psg_ordem_servico modify column docto_segurado (varchar2(300)) [42001-220]
+2023-09-02 13:59:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Duplicate column name "STATUS_OS"; SQL statement:
+alter table tb_psg_ordem_servico add status_os char(1) [42121-220]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.setColumns(Table.java:494)
+	at org.h2.table.TableBase.<init>(TableBase.java:73)
+	at org.h2.mvstore.db.MVTable.<init>(MVTable.java:139)
+	at org.h2.mvstore.db.Store.createTable(Store.java:216)
+	at org.h2.schema.Schema.createTable(Schema.java:797)
+	at org.h2.command.ddl.AlterTableAlterColumn.cloneTableStructure(AlterTableAlterColumn.java:454)
+	at org.h2.command.ddl.AlterTableAlterColumn.copyData(AlterTableAlterColumn.java:339)
+	at org.h2.command.ddl.AlterTableAlterColumn.update(AlterTableAlterColumn.java:242)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:252)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:223)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:188)
+	at org.h2.server.web.WebThread.run(WebThread.java:101)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+2023-09-02 13:59:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]tb_psg_ordem_servico where id_ordem_servico = 33"; expected "TRUNCATE"; SQL statement:
+tb_psg_ordem_servico where id_ordem_servico = 33 [42001-220]
+2023-09-02 14:04:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select count(1) from tb_psg_ordem_servico  where docto_segurado  = 45633416813 and status_os  != 'E'[*]"""; SQL statement:
+select count(1) from tb_psg_ordem_servico  where docto_segurado  = 45633416813 and status_os  != 'E'" [42000-220]
+2023-09-02 14:05:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select *from tb_psg_ordem_servico  \000d\000ainsert [*]into tb_psg_ordem_servico  (tipo_sinistro,docto_segurado,descricao_sinistro,status_os) values (3,45633416813,'alegria','A')"; SQL statement:
+select *from tb_psg_ordem_servico  
+insert into tb_psg_ordem_servico  (tipo_sinistro,docto_segurado,descricao_sinistro,status_os) values (3,45633416813,'alegria','A') [42000-220]
+2023-09-02 14:05:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select *from tb_psg_ordem_servico  \000d\000ainsert [*]into tb_psg_ordem_servico  (tipo_sinistro,docto_segurado,descricao_sinistro,status_os) values (3,45633416813,'alegria','A')"; SQL statement:
+select *from tb_psg_ordem_servico  
+insert into tb_psg_ordem_servico  (tipo_sinistro,docto_segurado,descricao_sinistro,status_os) values (3,45633416813,'alegria','A') [42000-220]

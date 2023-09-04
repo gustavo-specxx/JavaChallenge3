@@ -24,7 +24,7 @@ public class GerenciamentoSinistros {
 		 System.out.println("Digite seu documento");
 		 String documentoSegurado = scan.next();
 		 
-		 documeaaantoSegurado.replaceAll("\\s", "");
+		 documentoSegurado.replaceAll("\\s", "");
 		 
 		 Segurado novoSegurado = new Segurado("André",documentoSegurado);
 

@@ -19,7 +19,7 @@ public class ChamadasFuncao {
 		ChamadoDAO chamadoDAO = new ChamadoDAO();
 		Scanner scan = new Scanner(System.in);
 
-		int validaCham = chamadoDAO.validaChamado(documentoSegurado);
+		int validaCham = chamadoDAOOO.validaChamado(documentoSegurado);
 		
 		System.out.println("entrou" + validaCham);
 		

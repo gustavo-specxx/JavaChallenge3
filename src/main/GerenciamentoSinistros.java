@@ -45,7 +45,7 @@ public class GerenciamentoSinistros {
 						break;
 						
 					case 3:
-						
+						chamada.mostraChamados(documentoSegurado);
 						
 						
 					}

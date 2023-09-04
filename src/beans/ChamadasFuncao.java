@@ -19,7 +19,7 @@ public class ChamadasFuncao {
 		ChamadoDAO chamadoDAO = new ChamadoDAO();
 		Scanner scan = new Scanner(System.in);
 
-		int validaCham = chamadoDAOOO.validaChamado(documentoSegurado);
+		int validaCham = chamadoDAO.validaChamado(documentoSegurado);
 		
 		System.out.println("entrou" + validaCham);
 		
@@ -66,10 +66,12 @@ public class ChamadasFuncao {
 		   
 		   
 		   Chamado novoChamado = new Chamado(formHoraSinistro,dataAtual,tipoSinistro,descricaoChamado,documentoSegurado);
+		   System.out.println("Chamado aberto com sucesso! Em breve retornaremos com seu modal");
 		   
-		/* chamadoDAO.insereChamado(novoChamado);
+		   
+		 chamadoDAO.insereChamado(novoChamado);
 		 
-		 ArrayList<Chamado> os = chamadoDAO.retornaChamados(documentoSegurado);
+		 /* ArrayList<Chamado> os = chamadoDAO.retornaChamados(documentoSegurado);
 		 
 		 for(Chamado chamados: os) {
 			 System.out.println("Descrição do chamado: " + chamados.getDescricaoChamado());
@@ -80,17 +82,27 @@ public class ChamadasFuncao {
 		
 	}
 	
-/*	public ArrayList<Chamado> retornaChamado(){
-		ChamadoDAO chamadoDAO = new ChamadoDao();
+	public void mostraChamados(String documentoSegurado) {
+		ArrayList<Chamado> chamados = new ArrayList<>();
+		
+		ChamadoDAO chamadoDAO = new ChamadoDAO();
 		
 		
-		return null;
+		chamados = chamadoDAO.retornaChamados(documentoSegurado);
 		
-	}*/
+		String tipoSinistro;
 		
-		
+		for(Chamado chamado: chamados) {
+			System.out.println("Tipo sinistro....: " + (tipoSinistro = (chamado.getTipoSinistro() == 1) ? "Batida"  :
+																	(chamado.getTipoSinistro() == 2) ? "Pane"  :
+																							"teste" )) ;
+			System.out.println("Status do chamado : ");
+			
+		}
 		
 	}
+
+}
 	
 	
 	

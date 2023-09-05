@@ -20,7 +20,6 @@ public class ChamadoDAO {
 			
 			PreparedStatement execInsert = conn.prepareStatement(sqlInsert);
 			execInsert.setInt(1,chamado.getTipoSinistro());
-			//execInsert.setDate(2, Date.valueOf(chamado.getHoraAtual()));
 			execInsert.setString(2,chamado.getDescricaoChamado());
 			execInsert.setString(3,chamado.getDocumentoSegurado());
 			
@@ -50,7 +49,6 @@ public class ChamadoDAO {
 				chamado.setDescricaoChamado(rs.getString("DESCRICAO_SINISTRO"));
 				chamado.setTipoSinistro(rs.getInt("TIPO_SINISTRO"));
 				chamados.add(chamado);
-				//chamado.set					
 			}
 					
 		}catch(SQLException e){

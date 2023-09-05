@@ -13,44 +13,61 @@ public class ChamadasFuncao {
 	public ChamadasFuncao() {}
 	
 	public void abreChamado(String documentoSegurado) {
-		/*System.out.println("Digite a hora do ocorrido");
-		scan.next*/
-		
+
 		ChamadoDAO chamadoDAO = new ChamadoDAO();
+		VeiculoDAO veiculoDAO = new VeiculoDAO();
+		ArrayList<Veiculo> veiculo = new ArrayList<>();
+		
+		
+		
 		Scanner scan = new Scanner(System.in);
 
 		int validaCham = chamadoDAO.validaChamado(documentoSegurado);
-		
-		System.out.println("entrou" + validaCham);
 		
 		if(validaCham == 1) {
 			System.out.println("Já existem chamados em aberto, deseja continuar? S/N");
 			String decisao = scan.next();
 			
 			if(decisao == "N") {
+				//Retornar ao menu
 				
 			}
 			
 		}
 		
-		LocalDate dataAtual = LocalDate.now();
-		
 
-		System.out.println("Digite o número de acordo com a sua situação:\\n[1]Batida [2]Pane Elétrica [3]Desastres Naturais");		
+		System.out.println("Digite o número de acordo com a sua situação:\\n1- Colisão, 2-Roubo/Furto, 3-Incêndio, 4-Desastres naturais, 5-Reparo vidros");		
 		int tipoSinistro = scan.nextInt();
 
-		System.out.println("Nos dê uma descrição do que ocorreu");
-		String descricaoChamado = scan.next();
+		System.out.println("Descreva o ocorrido");
+		String descricaoChamado = scan.next(); 
 		
-		System.out.println("Digite o horário do acidente formato(HH:mm)");
-		String horaSinistro = scan.next();
-		
-		LocalTime formHoraSinistro = null;
-		
-		   DateTimeFormatter formataHora = DateTimeFormatter.ofPattern("HH:mm");
-		   
-		   Boolean validaData = false;
-		   
+        System.out.println("Insira a placa do Veículo envolvido no acidente:");
+        veiculo = veiculoDAO.listaVeiculosApolice(documentoSegurado);
+        
+        for(Veiculo veic: veiculo) {
+        	System.out.println("===========*=========*=======");
+        	System.out.println("Placa......: " + veic.getPlaca());
+        	System.out.println("Descrição..: " + veic.getNomeVeiculo());
+        	System.out.println("Chassi.....:" + veic.getChassi()); }
+        
+        
+        String veiculoSelecionado = scan.nextLine();
+        
+        //Decisão: Usar API ou digitar localização
+        System.out.println("Qual é o seu endereço? Insira o nome da rua:");
+        Local.setRua(scan.nextLine());
+        
+        System.out.println("Qual é o número?:");
+        Local.setNumero(scan.nextLine());
+        
+        System.out.println("Qual é o bairro?:");
+        Local.setBairro(scan.nextLine());
+        
+        System.out.println("Qual é o cep?:");
+        Local.setCep(scan.nextLine());
+        
+   
 		   
 		  /* while(validaData == false) {
 	        try {
@@ -65,11 +82,13 @@ public class ChamadasFuncao {
 		   }*/
 		   
 		   
-		   Chamado novoChamado = new Chamado(formHoraSinistro,dataAtual,tipoSinistro,descricaoChamado,documentoSegurado);
-		   System.out.println("Chamado aberto com sucesso! Em breve retornaremos com seu modal");
+		   Chamado novoChamado = new Chamado(null,null,tipoSinistro,descricaoChamado,documentoSegurado);
+		  
+		   chamadoDAO.insereChamado(novoChamado);
+
+		   System.out.println("Chamado aberto com sucesso! Em breve retornaremos com atualizações");
 		   
 		   
-		 chamadoDAO.insereChamado(novoChamado);
 		 
 		 /* ArrayList<Chamado> os = chamadoDAO.retornaChamados(documentoSegurado);
 		 
@@ -87,15 +106,18 @@ public class ChamadasFuncao {
 		
 		ChamadoDAO chamadoDAO = new ChamadoDAO();
 		
-		
 		chamados = chamadoDAO.retornaChamados(documentoSegurado);
 		
 		String tipoSinistro;
 		
 		for(Chamado chamado: chamados) {
-			System.out.println("Tipo sinistro....: " + (tipoSinistro = (chamado.getTipoSinistro() == 1) ? "Batida"  :
-																	(chamado.getTipoSinistro() == 2) ? "Pane"  :
-																							"teste" )) ;
+			System.out.println("=========CHAMADOS=======");
+			System.out.println("Tipo sinistro....: " + (tipoSinistro = (chamado.getTipoSinistro() == 1) ? "Colisão"  :
+																	(chamado.getTipoSinistro() == 2) ? "Roubo/Furto"  		:
+																	(chamado.getTipoSinistro() == 3) ? "Incêndio":
+																	(chamado.getTipoSinistro() == 4) ? "Desastre Natural":
+																	(chamado.getTipoSinistro() == 5) ? "Reparo de Vidros":
+																							"Não Identificado" )) ;
 			System.out.println("Status do chamado : ");
 			
 		}

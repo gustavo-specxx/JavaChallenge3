@@ -16,6 +16,8 @@ public class Veiculo {
         this.altura = altura;
         this.chassi = chassi;
     }
+    
+    public Veiculo() {}
 
     public String getNomeVeiculo() {
         return nomeVeiculo;

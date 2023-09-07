@@ -27,9 +27,7 @@ public class VeiculoDAO {
 			
 			insereVeiculo.setString(1, veiculo.getPlaca());
 			insereVeiculo.setString(2,veiculo.getChassi());
-			
-			
-			
+						
 			insereVeiculo.execute();
 			insereVeiculo.close();
 			
@@ -48,7 +46,7 @@ public class VeiculoDAO {
 		
 		Connection conn = new ConnectionFactory().criaConexao();
 
-		String sqlSelect = "Select placa_veiculo, especificacoes_veiculo, chassi_veiculo from tb_psg_veiculo where docto_segurado = " + doctoSegurado;
+		String sqlSelect = "Select placa_veiculo, especificacoes_veiculo, NUM_CHASSI_VEICULO from tb_psg_veiculo where docto_segurado = " + doctoSegurado;
 		
 		
 		try {
@@ -59,7 +57,7 @@ public class VeiculoDAO {
 				Veiculo nVeiculo = new Veiculo();
 				nVeiculo.setPlaca(rs.getString("PLACA_VEICULO"));
 				nVeiculo.setNomeVeiculo(rs.getString("ESPECIFICACOES_VEICULO"));
-				nVeiculo.setChassi(rs.getString("CHASSI_VEICULO"));
+				nVeiculo.setChassi(rs.getString("NUM_CHASSI_VEICULO"));
 				veiculo.add(nVeiculo);
 			}
 		

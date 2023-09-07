@@ -35,7 +35,6 @@ public class ChamadasFuncao {
 			
 		}
 		
-
 		System.out.println("Digite o número de acordo com a sua situação:\\n1- Colisão, 2-Roubo/Furto, 3-Incêndio, 4-Desastres naturais, 5-Reparo vidros");		
 		int tipoSinistro = scan.nextInt();
 
@@ -52,9 +51,9 @@ public class ChamadasFuncao {
         	System.out.println("Chassi.....:" + veic.getChassi()); }
         
         
-        String veiculoSelecionado = scan.nextLine();
+        String veiculoSelecionado = scan.next();
         
-        //Decisão: Usar API ou digitar localização
+        //Decisão: Usar API ou digitar localização (?)
         System.out.println("Qual é o seu endereço? Insira o nome da rua:");
         Local.setRua(scan.nextLine());
         
@@ -87,7 +86,7 @@ public class ChamadasFuncao {
 		   chamadoDAO.insereChamado(novoChamado);
 
 		   System.out.println("Chamado aberto com sucesso! Em breve retornaremos com atualizações");
-		   
+		   chamadoDAO.fechaConexao();
 		   
 		 
 		 /* ArrayList<Chamado> os = chamadoDAO.retornaChamados(documentoSegurado);
@@ -108,19 +107,53 @@ public class ChamadasFuncao {
 		
 		chamados = chamadoDAO.retornaChamados(documentoSegurado);
 		
-		String tipoSinistro;
-		
-		for(Chamado chamado: chamados) {
-			System.out.println("=========CHAMADOS=======");
-			System.out.println("Tipo sinistro....: " + (tipoSinistro = (chamado.getTipoSinistro() == 1) ? "Colisão"  :
-																	(chamado.getTipoSinistro() == 2) ? "Roubo/Furto"  		:
-																	(chamado.getTipoSinistro() == 3) ? "Incêndio":
-																	(chamado.getTipoSinistro() == 4) ? "Desastre Natural":
-																	(chamado.getTipoSinistro() == 5) ? "Reparo de Vidros":
-																							"Não Identificado" )) ;
-			System.out.println("Status do chamado : ");
+		int tipoSinistro;
+				
+		if(chamados.isEmpty()) {
 			
+			
+			System.out.println("Não há chamados para mostrar.");
+			
+		}else {
+			System.out.println("=========CHAMADOS=======");
+			int v_count = 0;
+
+		for(Chamado chamado: chamados) {
+			
+			
+			   tipoSinistro = chamado.getTipoSinistro();
+			    String tipoSinistroTexto;
+
+			    switch (tipoSinistro) {
+			        case 1:
+			            tipoSinistroTexto = "Colisão";
+			            break;
+			        case 2:
+			            tipoSinistroTexto = "Roubo/Furto";
+			            break;
+			        case 3:
+			            tipoSinistroTexto = "Incêndio";
+			            break;
+			        case 4:
+			            tipoSinistroTexto = "Desastre Natural";
+			            break;
+			        case 5:
+			            tipoSinistroTexto = "Reparo de Vidros";
+			            break;
+			        default:
+			            tipoSinistroTexto = "Não Identificado";
+			            break;
+			    }
+			    
+			    System.out.println("Tipo Sinistro....: " + tipoSinistroTexto);
+			    
+			    v_count = v_count + 1;
+			    
+			    System.out.println(tipoSinistro);
+			}
 		}
+		chamadoDAO.fechaConexao();
+			
 		
 	}
 

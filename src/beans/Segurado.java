@@ -37,7 +37,7 @@ public class Segurado {
             cpf = leitor.nextLine();
         }
 
-        if (umSinistro.getDigitoSinistro() == null || umSinistro.getDigitoSinistro().isEmpty()) {
+       /* if (umSinistro.getDigitoSinistro() == null || umSinistro.getDigitoSinistro().isEmpty()) {
             System.out.println("Digite o número de acordo com a sua situação:\n[1]Batida [2]Pane Elétrica [3]Desastres Naturais");
             umSinistro.setDigitoSinistro(leitor.nextLine());
             umSinistro.escolhaSinistro();
@@ -71,7 +71,7 @@ public class Segurado {
         if (Local.getCep() == null || Local.getCep().isEmpty()) {
             System.out.println("Qual é o cep?:");
             Local.setCep(leitor.nextLine());
-        }
+        }*/
 
      //   Chamado.retornarInformacoes();
 

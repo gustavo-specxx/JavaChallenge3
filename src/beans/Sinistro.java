@@ -10,14 +10,20 @@ public class Sinistro {
     public void escolhaSinistro() {
         switch (digitoSinistro) {
             case "1":
-                sinistroEscolhido = "Batida";
+                sinistroEscolhido = "Colisão";
                 break;
             case "2":
-                sinistroEscolhido = "Pane Elétrica";
+                sinistroEscolhido = "Roubo/Furto";
                 break;
             case "3":
-                sinistroEscolhido = "Desastres Naturais";
+                sinistroEscolhido = "Incêndio";
                 break;
+            case "4":
+            	sinistroEscolhido = "Desastre Natural";
+            	break;
+            case "5":
+            	sinistroEscolhido = "Reparo de Vidros";
+            	break;
         }
     }
 

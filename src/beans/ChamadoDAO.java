@@ -20,13 +20,11 @@ public class ChamadoDAO {
 			
 			PreparedStatement execInsert = conn.prepareStatement(sqlInsert);
 			execInsert.setInt(1,chamado.getTipoSinistro());
-			//execInsert.setDate(2, Date.valueOf(chamado.getHoraAtual()));
 			execInsert.setString(2,chamado.getDescricaoChamado());
 			execInsert.setString(3,chamado.getDocumentoSegurado());
 			
 			execInsert.execute();
 			execInsert.close();
-			System.out.println("Lançado com sucesso");
 				
 		
 		}catch(SQLException e) {
@@ -35,30 +33,42 @@ public class ChamadoDAO {
 	}
 	
 	
-	public ArrayList<Chamado> retornaChamados(String cpfSegurado){
+	public ArrayList<Chamado> retornaChamados(String doctoSegurado){
 		ArrayList<Chamado> chamados = new ArrayList<>();			
 			
-		String sqlSelect = "Select * from tb_psg_ordem_servico where docto_segurado = "+ cpfSegurado;
+		String sqlSelect = "Select * from tb_psg_ordem_servico where docto_segurado = "+ doctoSegurado;
 		
 		try {
 			
 			PreparedStatement selectChamado = conn.prepareStatement(sqlSelect) ;
 			ResultSet rs = selectChamado.executeQuery();
 			
+			
+			System.out.println(doctoSegurado);
+
+			int v_teste;
+			
+			
 			while(rs.next()) {
 				Chamado chamado = new Chamado();
+				
 				chamado.setDescricaoChamado(rs.getString("DESCRICAO_SINISTRO"));
 				chamado.setTipoSinistro(rs.getInt("TIPO_SINISTRO"));
+				v_teste = rs.getInt("TIPO_SINISTRO");
+
 				chamados.add(chamado);
-				//chamado.set					
 			}
+			selectChamado.close();
 					
 		}catch(SQLException e){
 			throw new RuntimeException(e.getMessage());
 					
 			
 		}
-		return chamados;	
+		
+		
+		return chamados;
+		
 	}
 	
 	public int validaChamado(String documentoSegurado) {
@@ -70,6 +80,8 @@ public class ChamadoDAO {
 		try {
 			PreparedStatement query = conn.prepareStatement(sqlSelect);
 			query.setString(1, documentoSegurado);
+			
+			
 						
 			ResultSet rs =  query.executeQuery();
 			

@@ -1,102 +1,57 @@
 package beans;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.*;
+
+import java.util.Date;
 
 public class Chamado {
+    private int tipoSinistro;
+    private String descricaoChamado;
+    private String documentoSegurado;
+    private Date horaAtual;
 
-	private static LocalTime horaAtual;
-	private static LocalDate dataAtual;  
-	private static int tipoSinistro;
-	private static String descricaoChamado;
-	private static String documentoSegurado;
-	
-	public Chamado(LocalTime horaAtual,LocalDate dataAtual, int tipoSinistro, String descricaoChamado, String documentoSegurado) {
+    public Chamado() {
+    }
+
+    public Chamado(int tipoSinistro, String descricaoChamado, String documentoSegurado, Date horaAtual) {
+        this.tipoSinistro = tipoSinistro;
+        this.descricaoChamado = descricaoChamado;
+        this.documentoSegurado = documentoSegurado;
+        this.horaAtual = horaAtual;
+    }
+
+    public Chamado(Object object, Object object2, int tipoSinistro2, String descricaoChamado2,
+			String documentoSegurado2) {
 		
-		Chamado.horaAtual = horaAtual;
-		Chamado.dataAtual = dataAtual;
-		Chamado.tipoSinistro = tipoSinistro;
-		Chamado.descricaoChamado = descricaoChamado;
-		Chamado.documentoSegurado = documentoSegurado;
-		
-	}
-	
-	public Chamado() {
-		
-		
-	}
-	
-	
-	public static LocalDate getDataAtual() {
-		return dataAtual;
 	}
 
-	public static void setDataAtual(LocalDate dataAtual) {
-		Chamado.dataAtual = dataAtual;
-	}
-	
-	public static LocalTime getHoraAtual() {
-		return horaAtual;
-	}
+	public int getTipoSinistro() {
+        return tipoSinistro;
+    }
 
-	public static void setHoraAtual(LocalTime horaAtual) {
-		Chamado.horaAtual = horaAtual;
-	}
+    public void setTipoSinistro(int tipoSinistro) {
+        this.tipoSinistro = tipoSinistro;
+    }
 
-	public static int getTipoSinistro() {
-		return tipoSinistro;
-	}
+    public String getDescricaoChamado() {
+        return descricaoChamado;
+    }
 
-	public static void setTipoSinistro(int tipoSinistro) {
-		Chamado.tipoSinistro = tipoSinistro;
-	}
+    public void setDescricaoChamado(String descricaoChamado) {
+        this.descricaoChamado = descricaoChamado;
+    }
 
-	public static String getDescricaoChamado() {
-		return descricaoChamado;
-	}
+    public String getDocumentoSegurado() {
+        return documentoSegurado;
+    }
 
-	public static void setDescricaoChamado(String descricaoChamado) {
-		Chamado.descricaoChamado = descricaoChamado;
-	}
+    public void setDocumentoSegurado(String documentoSegurado) {
+        this.documentoSegurado = documentoSegurado;
+    }
 
-	public static String getDocumentoSegurado() {
-		return documentoSegurado;
-	}
+    public Date getHoraAtual() {
+        return horaAtual;
+    }
 
-	public static void setDocumentoSegurado(String documentoSegurado) {
-		Chamado.documentoSegurado = documentoSegurado;
-	}
-		
-	/*public static void retornarInformacoes() {
-		System.out.println("----------------------------------------------");
-		
-		System.out.println("Essas são as informações do seu chamado:");
-		System.out.println("Horário: " + horaAtual);
-		//System.out.println("Nome: " + Segurado.getNomeSegurado());
-		//System.out.println("CPF: " + Segurado.getCpf());
-		System.out.println("Sinistro: " + Sinistro.getSinistroEscolhido());
-		System.out.println("Endereço: " + Local.getRua() + ", " + Local.getNumero() + " - " + Local.getBairro());
-		
-		System.out.println("----------------------------------------------");
-		
-		System.out.println("Essas são as informações do seu veículo:");
-		System.out.println("Nome: " + Veiculo.getNomeVeiculo());
-		System.out.println("Ano: " + Veiculo.getAno());
-		//System.out.println("Placa: " + Veiculo.getPlaca());
-		System.out.println("Chassi: " + Veiculo.getChassi());
-		System.out.println("Peso: " + Veiculo.getPeso());
-		System.out.println("Altura: " + Veiculo.getAltura());
-		
-		System.out.println("----------------------------------------------");
-		
-		System.out.println("Essas são as informações da carga:");
-		System.out.println("Peso da carga: " + Carga.getTipoCarga());
-		System.out.println("Tipo de carga: " + Carga.getPesoCarga());
-		
-		System.out.println("----------------------------------------------");
-		IA.selecionarModal();
-		System.out.println("Modal determinado: " + IA.getModalSelecionado());
-		
-	}*/
-
+    public void setHoraAtual(Date horaAtual) {
+        this.horaAtual = horaAtual;
+    }
 }

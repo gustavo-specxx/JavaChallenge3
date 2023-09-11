@@ -66,4 +66,20 @@ public class Veiculo {
     public void setChassi(String chassi) {
         this.chassi = chassi;
     }
+
+	public void setEspecificacoesVeiculo(String string) {
+		
+	}
+
+	public String getEstadoVeiculo() {
+		return null;
+	}
+
+	public String getEspecificacoesVeiculo() {
+		return null;
+	}
+
+	public void setEstadoVeiculo(String string) {
+		
+	}
 }

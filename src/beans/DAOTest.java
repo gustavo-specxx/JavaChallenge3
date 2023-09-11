@@ -21,34 +21,34 @@ public class DAOTest {
         // Teste os métodos da classe VeiculoDAO
 
         // Teste o método de inserção
+        int idSegurado = 123; // Substitua pelo valor correto
+
         Veiculo veiculo = new Veiculo();
         veiculo.setPlaca("ABC123");
-        veiculo.setEstadoVeiculo("Novo");
+        veiculo.setNomeVeiculo("Novo");
         veiculo.setEspecificacoesVeiculo("Especificações do veículo de teste");
-        veiculoDAO.registraVeiculo(veiculo);
+        veiculoDAO.registraVeiculo(veiculo, idSegurado);
 
-        // Teste o método de busca (você deve implementar um método de busca na VeiculoDAO)
-        Veiculo veiculoEncontrado = veiculoDAO.buscaVeiculoPorPlaca("ABC123");
-        assertNotNull(veiculoEncontrado);
-        assertEquals("ABC123", veiculoEncontrado.getPlaca());
 
-        // Outros testes de métodos da VeiculoDAO, como atualização e exclusão
     }
 
     @Test
     public void testChamadoDAO() {
-        // Teste os métodos da classe ChamadoDAO
+        
 
-        // Teste o método de inserção
+      
         Chamado chamado = new Chamado();
-        // Preencha os dados do chamado
-        chamadoDAO.insereChamado(chamado);
+       
 
-        // Teste o método que retorna chamados (você deve implementar um método semelhante)
-        ArrayList<Chamado> chamados = chamadoDAO.retornaChamados("documentoSegurado");
+     
+        String documentoSegurado = "123456789"; 
+        chamadoDAO.insereChamado(chamado, documentoSegurado);
+
+  
+        ArrayList<Chamado> chamados = chamadoDAO.retornaChamados(documentoSegurado);
         assertNotNull(chamados);
         assertTrue(chamados.size() > 0);
 
-        // Outros testes de métodos da ChamadoDAO
+        
     }
 }

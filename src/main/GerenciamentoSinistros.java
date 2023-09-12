@@ -33,7 +33,7 @@ public class GerenciamentoSinistros {
 				System.out.println("1 - Abrir chamado");
 				System.out.println("2 - Acompanhar Sinistro");
 				System.out.println("3 - Meus chamados");
-				System.out.println("5 - Encerrar programa");
+				System.out.println("4 - Encerrar programa");
 				
 				int opcao = scan.nextInt();
 				ChamadasFuncao chamada = new ChamadasFuncao();

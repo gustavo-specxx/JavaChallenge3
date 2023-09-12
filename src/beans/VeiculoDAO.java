@@ -31,7 +31,7 @@ public class VeiculoDAO {
     public ArrayList<Veiculo> listaVeiculosApolice(String documentoSegurado) {
         ArrayList<Veiculo> veiculos = new ArrayList<>();
         
-        String sqlSelect = "SELECT * FROM tb_psg_veiculo v INNER JOIN tb_psg_segurado s ON v.TB_PSG_SEGURADO_ID_SEGURADO = s.ID_SEGURADO WHERE s.DOC_SEGURADO = ?";
+        String sqlSelect = "SELECT * FROM tb_psg_veiculo v INNER JOIN tb_psg_segurado s ON v.TB_PSG_SEGURADO_ID_SEGURADO = s.ID_SEGURADO WHERE s.DOCUMENTO_SEGURADO = ?";
         
         try {
             PreparedStatement selectVeiculos = conn.prepareStatement(sqlSelect);

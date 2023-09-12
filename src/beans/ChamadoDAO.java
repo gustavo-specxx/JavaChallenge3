@@ -12,11 +12,13 @@ public class ChamadoDAO {
     public void insereChamado(Chamado chamado, String documentoSegurado) {
         String sql = "INSERT INTO TB_PSG_ORDEM_SERVICO (TIPO_SINISTRO, DESCRICAO_SINISTRO, DOCTO_SEGURADO) VALUES (?, ?, ?)";
         
-        try (Connection conn = getConnection();
+        try (//Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
              
+        	String desc_chamado = (chamado.getDescricaoChamado()!= null) ? chamado.getDescricaoChamado() : "CHAMADO";
+        	
             pstmt.setInt(1, chamado.getTipoSinistro());
-            pstmt.setString(2, chamado.getDescricaoChamado());
+            pstmt.setString(2, desc_chamado);
             pstmt.setString(3, documentoSegurado); // Defina o documento do segurado aqui
             
             pstmt.executeUpdate();

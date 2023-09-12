@@ -33,9 +33,9 @@ public class ChamadasFuncao {
 
         System.out.println("Descreva o ocorrido:");
         String descricaoChamado = scan.next(); 
-        
-        System.out.println("Insira a placa do Veículo envolvido no acidente:");
         veiculos = veiculoDAO.listaVeiculosApolice(documentoSegurado);
+
+        System.out.println("Insira a placa do Veículo envolvido no acidente:");
         
         for(Veiculo veiculo : veiculos) {
             System.out.println("===========*=========*=======");
@@ -44,6 +44,8 @@ public class ChamadasFuncao {
             System.out.println("Chassi.....:" + veiculo.getChassi());
         }
         
+        String veiculo = scan.next();
+        
         Chamado chamado = new Chamado(null, null, tipoSinistro, descricaoChamado, documentoSegurado);
           
         chamadoDAO.insereChamado(chamado, descricaoChamado);
@@ -51,7 +53,7 @@ public class ChamadasFuncao {
         System.out.println("Chamado aberto com sucesso! Em breve retornaremos com atualizações");
         chamadoDAO.fechaConexao();
         
-        scan.close(); // Fechar o scanner no final do método
+       // scan.close(); // Fechar o scanner no final do método
     }
     
     public void mostraChamados(String documentoSegurado) {

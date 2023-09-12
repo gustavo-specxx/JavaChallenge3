@@ -309,3 +309,14 @@ Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection wa
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	... 53 more
+2023-09-11 22:04:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TB_PSG_VEICULO" already exists; SQL statement:
+CREATE TABLE TB_PSG_VEICULO (
+    PLACA_VEICULO VARCHAR(255),
+    ESTADO_VEICULO CHAR(1),
+    ESPECIFICACOES_VEICULO VARCHAR(255),
+    ID_VEICULO INT,
+    TB_PSG_SEGURADO_ID_SEGURADO INT,
+    NUM_CHASSI_VEICULO BIGINT,
+    DOCTO_SEGURADO BIGINT
+) [42101-220]

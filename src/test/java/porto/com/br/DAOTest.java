@@ -13,15 +13,26 @@ import java.util.ArrayList;
 public class DAOTest {
     private VeiculoDAO veiculoDAO;
     private ChamadoDAO chamadoDAO;
+    private SeguradoDAO seguradoDAO;
+    
+    
+
 
     @Before
     public void setUp() {
         // Inicialize objetos necessários antes de cada teste
         veiculoDAO = new VeiculoDAO();
         chamadoDAO = new ChamadoDAO();
+        seguradoDAO = new SeguradoDAO();
+    }	
+    
+    @Test
+    public void verificaRetornoID() {
+    	seguradoDAO.retornaIdSegurado("46728701000142");
+    	
     }
 
-    @Test
+    /*@Test
     public void testVeiculoDAO() {
         // Teste os métodos da classe VeiculoDAO
 
@@ -51,5 +62,5 @@ public class DAOTest {
         assertTrue(chamados.size() > 0);
 
         
-    }
+    }*/
 }

@@ -11,19 +11,27 @@ import porto.com.br.beans.Chamado;
 
 public class ChamadoDAO {
     Connection conn = new ConnectionFactory().criaConexao();
-
+    
     public void insereChamado(Chamado chamado, String documentoSegurado) {
-        String sql = "INSERT INTO TB_PSG_ORDEM_SERVICO (TIPO_SINISTRO, DESCRICAO_SINISTRO, DOCTO_SEGURADO) VALUES (?, ?, ?)";
+        String sql = "insert into TB_PSG_ORDEM_SERVICO (ID_ORDEM_SERVICO"
++ "                                 ,TIPO_SINISTRO"
++ "                                 ,DATA_SINISTRO"
++ "                                 ,ID_SEGURADO"
++ "                                 ,DESCRICAO_SINISTRO"
++ "                                 ,ID_APOLICE_SEGURO"
++ "                                 ,ID_LOCAL_SINISTRO)"
++ "                                 VALUES(seq_id_ordem_servico.nextval,1,'12/10/2023',1,'Ai',1,1)";
         
         try (//Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
              
-        	String desc_chamado = (chamado.getDescricaoChamado()!= null) ? chamado.getDescricaoChamado() : "CHAMADO";
+        	/*String desc_chamado = (chamado.getDescricaoChamado()!= null) ? chamado.getDescricaoChamado() : "CHAMADO";
         	
             pstmt.setInt(1, chamado.getTipoSinistro());
             pstmt.setString(2, desc_chamado);
             pstmt.setString(3, documentoSegurado); // Defina o documento do segurado aqui
-            
+            */
+        	
             pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -63,12 +71,16 @@ public class ChamadoDAO {
     }
 
     public int validaChamado(String documentoSegurado) {
-        String sqlSelect = "SELECT COUNT(1) FROM tb_psg_ordem_servico WHERE docto_segurado = ? AND status_os != 'E'";
+        String sqlSelect = "SELECT COUNT(1) FROM tb_psg_ordem_servico WHERE ID_SEGURADO = ? AND STATUS_OS != 'E'";
         int existeChamadoAberto;
 
         try {
+        	
+        	SeguradoDAO seg = new SeguradoDAO();
+        	int idSegurado = seg.retornaIdSegurado(documentoSegurado);
+        	
             PreparedStatement query = conn.prepareStatement(sqlSelect);
-            query.setString(1, documentoSegurado);
+            query.setInt(1, idSegurado);
             ResultSet rs = query.executeQuery();
 
             while (rs.next()) {

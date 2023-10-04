@@ -35,11 +35,24 @@ public class VeiculoDAO {
     public ArrayList<Veiculo> listaVeiculosApolice(String documentoSegurado) {
         ArrayList<Veiculo> veiculos = new ArrayList<>();
         
-        String sqlSelect = "SELECT * FROM tb_psg_veiculo v INNER JOIN tb_psg_segurado s ON v.TB_PSG_SEGURADO_ID_SEGURADO = s.ID_SEGURADO WHERE s.DOCUMENTO_SEGURADO = ?";
+        String sqlSelect = "select veic.placa_veiculo"
+                + ",      tipv.modelo_veiculo"
+                + ",      tipv.ano_fabricacao_veiculo"
+                + "from tb_psg_apolice_seguro apol"
+                + ",    tb_psg_veiculo veic"
+                + ",    tb_psg_veiculo_apolice veia"
+                + ",    tb_psg_tipo_veiculo tipv"
+                + "where apol.id_segurado = ?"
+                + "and   apol.apolice_ativa      = 1"
+                + "and   apol.id_apolice_seguro  = veia.id_apolice_seguro"
+                + "and   veic.id_veiculo         = veia.id_veiculo"
+                + "and   veic.id_tipo_veiculo    = tipv.id_tipo_veiculo";
         
         try {
             PreparedStatement selectVeiculos = conn.prepareStatement(sqlSelect);
-            selectVeiculos.setString(1, documentoSegurado);
+            SeguradoDAO seguradoDAO = new SeguradoDAO();
+            
+            selectVeiculos.setInt(1,seguradoDAO.retornaIdSegurado(documentoSegurado));
             ResultSet rs = selectVeiculos.executeQuery();
             
             while (rs.next()) {

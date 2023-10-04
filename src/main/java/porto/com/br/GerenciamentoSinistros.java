@@ -18,33 +18,20 @@ import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
-/**
- * Main class.
- *
- */
-public class GerenciamentoSinistros {
-    // Base URI the Grizzly HTTP server will listen on
-    public static final String BASE_URI = "http://localhost:8080/";
 
-    /**
-     * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
-     * @return Grizzly HTTP server.
-     */
+public class GerenciamentoSinistros{
+	
+    /*public static final String BASE_URI = "http://localhost:8080/";
+
+
     public static HttpServer startServer() {
-        // create a resource config that scans for JAX-RS resources and providers
-        // in com.example package
+
         final ResourceConfig rc = new ResourceConfig().packages("porto.com.br");
 
-        // create and start a new instance of grizzly http server
-        // exposing the Jersey application at BASE_URI
+
         return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
     }
 
-    /**
-     * Main method.
-     * @param args
-     * @throws IOException
-     */
     public static void main(String[] args) throws IOException {
         final HttpServer server = startServer();
         System.out.println(String.format("Jersey app started with endpoints available at "
@@ -52,14 +39,10 @@ public class GerenciamentoSinistros {
         System.in.read();
         server.stop();
     }
-}
-
-/*public class GerenciamentoSinistros {
-
+}*/
 	public static void main(String[] args) throws Exception{
 			
-		/*INSERIR MENU*/
-		/*Scanner scan = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
 
 		 System.out.println("Digite seu documento");
 		 String documentoSegurado = scan.next();
@@ -95,7 +78,13 @@ public class GerenciamentoSinistros {
 				
 				
 				
-			}*/ //usar até aqui
+			}
+			
+	}
+	
+}///usar até aqui
+	
+
 			
 			
 		/*System.out.println("Digite a hora do ocorrido");

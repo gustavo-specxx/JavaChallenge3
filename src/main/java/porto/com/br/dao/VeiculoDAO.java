@@ -14,7 +14,7 @@ public class VeiculoDAO {
     
     Connection conn = new ConnectionFactory().criaConexao();
     
-    public void registraVeiculo(Veiculo veiculo, int idSegurado) {
+    /*public void registraVeiculo(Veiculo veiculo, int idSegurado) {
         String sqlInsert = "INSERT INTO tb_psg_veiculo (placa_veiculo, estado_veiculo, especificacoes_veiculo, TB_PSG_SEGURADO_ID_SEGURADO) VALUES (?, ?, ?, ?)";
         
         try {
@@ -30,36 +30,39 @@ public class VeiculoDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e.getMessage());
         }
-    }
+    }*/
 
     public ArrayList<Veiculo> listaVeiculosApolice(String documentoSegurado) {
         ArrayList<Veiculo> veiculos = new ArrayList<>();
         
         String sqlSelect = "select veic.placa_veiculo"
-                + ",      tipv.modelo_veiculo"
-                + ",      tipv.ano_fabricacao_veiculo"
-                + "from tb_psg_apolice_seguro apol"
+                + ", tipv.modelo_veiculo"
+                + ", veic.ESPECIFICACOES_VEICULO"
+                + ", veic.estado_veiculo"
+                + " from tb_psg_apolice_seguro apol"
                 + ",    tb_psg_veiculo veic"
                 + ",    tb_psg_veiculo_apolice veia"
                 + ",    tb_psg_tipo_veiculo tipv"
-                + "where apol.id_segurado = ?"
-                + "and   apol.apolice_ativa      = 1"
-                + "and   apol.id_apolice_seguro  = veia.id_apolice_seguro"
-                + "and   veic.id_veiculo         = veia.id_veiculo"
-                + "and   veic.id_tipo_veiculo    = tipv.id_tipo_veiculo";
-        
+                + " where apol.id_segurado = ? "
+                + " and   apol.apolice_ativa      = 1 "
+                + " and   apol.id_apolice_seguro  = veia.id_apolice_seguro "
+                + " and   veic.id_veiculo         = veia.id_veiculo "
+                + " and   veic.id_tipo_veiculo    = tipv.id_tipo_veiculo";
         try {
             PreparedStatement selectVeiculos = conn.prepareStatement(sqlSelect);
             SeguradoDAO seguradoDAO = new SeguradoDAO();
             
             selectVeiculos.setInt(1,seguradoDAO.retornaIdSegurado(documentoSegurado));
             ResultSet rs = selectVeiculos.executeQuery();
-            
+
             while (rs.next()) {
                 Veiculo veiculo = new Veiculo();
-                veiculo.setPlaca(rs.getString("placa_veiculo"));
-                veiculo.setEstadoVeiculo(rs.getString("estado_veiculo"));
-                veiculo.setEspecificacoesVeiculo(rs.getString("especificacoes_veiculo"));
+                veiculo.setPlaca(rs.getString("PLACA_VEICULO"));
+
+                veiculo.setModeloVeiculo(rs.getString("MODELO_VEICULO"));
+
+                veiculo.setEspecificacoesVeiculo(rs.getString("ESPECIFICACOES_VEICULO"));
+
                 veiculos.add(veiculo);
             }
             

@@ -7,14 +7,18 @@ public class Veiculo {
     private String placa;
     private double altura;
     private String chassi;
+    private String especificacoesVeiculo; 
+	private String modeloVeiculo;
     
-    public Veiculo(String nomeVeiculo, int ano, double peso, String placa, double altura, String chassi) {
+    public Veiculo(String nomeVeiculo, int ano, double peso, String placa, double altura, String chassi, String especificacoesVeiculo, String modeloVeiculo) {
         this.nomeVeiculo = nomeVeiculo;
         this.ano = ano;
         this.peso = peso;
         this.placa = placa;
         this.altura = altura;
         this.chassi = chassi;
+        this.especificacoesVeiculo = especificacoesVeiculo;
+        this.modeloVeiculo = modeloVeiculo;
     }
     
     public Veiculo() {}
@@ -67,8 +71,8 @@ public class Veiculo {
         this.chassi = chassi;
     }
 
-	public void setEspecificacoesVeiculo(String string) {
-		
+	public void setEspecificacoesVeiculo(String especificacoesVeiculo) {
+		this.especificacoesVeiculo = especificacoesVeiculo;
 	}
 
 	public String getEstadoVeiculo() {
@@ -76,7 +80,14 @@ public class Veiculo {
 	}
 
 	public String getEspecificacoesVeiculo() {
-		return null;
+		return especificacoesVeiculo;
+	}
+    public String getModeloVeiculo() {
+		return modeloVeiculo;
+	}
+
+	public void setModeloVeiculo(String modeloVeiculo) {
+		this.modeloVeiculo = modeloVeiculo;
 	}
 
 	public void setEstadoVeiculo(String string) {

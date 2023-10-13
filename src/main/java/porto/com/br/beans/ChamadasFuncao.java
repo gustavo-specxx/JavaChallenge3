@@ -30,6 +30,7 @@ public class ChamadasFuncao {
             }
         }
         
+        
         System.out.println("Digite o número de acordo com a sua situação:\n1- Colisão, 2-Roubo/Furto, 3-Incêndio, 4-Desastres naturais, 5-Reparo vidros");        
         int tipoSinistro = scan.nextInt();
 
@@ -41,9 +42,9 @@ public class ChamadasFuncao {
         
         for(Veiculo veiculo : veiculos) {
             System.out.println("===========*=========*=======");
-            System.out.println("Placa......: " + veiculo.getPlaca());
-            System.out.println("Descrição..: " + veiculo.getNomeVeiculo());
-            System.out.println("Chassi.....:" + veiculo.getChassi());
+            System.out.println("Placa.......: " + veiculo.getPlaca());
+            System.out.println("Modelo......: " + veiculo.getModeloVeiculo());
+            System.out.println("Especificações.....:" + veiculo.getEspecificacoesVeiculo());
         }
         
         String veiculo = scan.next();

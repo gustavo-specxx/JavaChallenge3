@@ -28,27 +28,35 @@ public class DAOTest {
     
     @Test
     public void verificaRetornoID() {
-    	seguradoDAO.retornaIdSegurado("46728701000142");
+    	seguradoDAO.retornaIdSegurado("17355056000161");
     	
     }
 
-    /*@Test
+    @Test
     public void testVeiculoDAO() {
         // Teste os métodos da classe VeiculoDAO
 
         // Teste o método de inserção
-        int idSegurado = 123; // Substitua pelo valor correto
-
-        Veiculo veiculo = new Veiculo();
+        
+        ArrayList<Veiculo> veiculos = new ArrayList<>();
+        veiculos = veiculoDAO.listaVeiculosApolice("17355056000161"); 
+        for(Veiculo veiculo : veiculos) {
+            System.out.println("===========================");
+            System.out.println("Placa......: " + veiculo.getPlaca());
+            System.out.println("Modelo.....: " + veiculo.getModeloVeiculo());
+            System.out.println("Especificações.:" + veiculo.getEspecificacoesVeiculo());
+        }
+        
+        /*Veiculo veiculo = new Veiculo();
         veiculo.setPlaca("ABC123");
         veiculo.setNomeVeiculo("Novo");
         veiculo.setEspecificacoesVeiculo("Especificações do veículo de teste");
         veiculoDAO.registraVeiculo(veiculo, idSegurado);
-
+		*/
 
     }
 
-    @Test
+  /*  @Test
     public void testChamadoDAO() {
            
         Chamado chamado = new Chamado();

@@ -21,7 +21,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 public class GerenciamentoSinistros{
 	
-   /* public static final String BASE_URI = "http://localhost:8083/";
+	 public static final String BASE_URI = "http://localhost:8083/";
 
 
     public static HttpServer startServer() {
@@ -39,8 +39,10 @@ public class GerenciamentoSinistros{
         System.in.read();
         server.stop();
     }
-}*/
-	public static void main(String[] args) throws Exception{
+}
+	
+
+	/*public static void main(String[] args) throws Exception{
 			
 		Scanner scan = new Scanner(System.in);
 

@@ -13,8 +13,10 @@ public class ChamadasFuncao {
 
         ChamadoDAO chamadoDAO = new ChamadoDAO();
         VeiculoDAO veiculoDAO = new VeiculoDAO();
+        ApoliceDAO apoliceDAO = new ApoliceDAO();
         ArrayList<Veiculo> veiculos = new ArrayList<>();
-        
+        ArrayList<Apolice> apolices = new ArrayList<>();
+
         Scanner scan = new Scanner(System.in);
 
         int validaCham = chamadoDAO.validaChamado(documentoSegurado);
@@ -30,7 +32,25 @@ public class ChamadasFuncao {
             }
         }
         
+        System.out.println("Escreva sua apólice");
         
+        int idx = 0;
+        
+        apolices = apoliceDAO.retornaApoliceSegurado("17355056000161"); 
+        for(Apolice apolice : apolices) {
+            System.out.println("===========================");
+            System.out.println("idx " + idx);
+            System.out.println("Cobertura......: " + apolice.getCoberturaApolice());
+            System.out.println("Codigo.....: " + apolice.getCodApolice());
+            System.out.println("Tipo.:" + apolice.getTipoApolice());
+            idx++;
+        }
+        
+        int indexApolice = scan.nextInt();
+        
+        int idApolice = apoliceDAO.retornaIdApolice(indexApolice, documentoSegurado);
+        
+        System.out.println(idApolice);
         System.out.println("Digite o número de acordo com a sua situação:\n1- Colisão, 2-Roubo/Furto, 3-Incêndio, 4-Desastres naturais, 5-Reparo vidros");        
         int tipoSinistro = scan.nextInt();
 

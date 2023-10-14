@@ -1,40 +1,85 @@
 package porto.com.br.beans;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Local {
-    private static String rua;
-    private static String numero;
-    private static String bairro;
-    private static String cep;
+	
+	@JsonProperty("LOGRADOURO")
+    private String endLocalSinistro;
+	
+	@JsonProperty("NUMERO")
+    private String numLocalSinistro;
+	
+	@JsonProperty("COMPLEMENTO")
+    private String pontoRefLocalSinistro;
+	
+	@JsonProperty("CEP")
+    private String cepLocalSinistro;
+	
+	@JsonProperty("LOCALIDADE")
+    private String localidade;
+	
+	@JsonProperty("UF")
+    private String ufLocalSinistro;
 
-    public static String getRua() {
-        return rua;
+    public Local(String endLocalSinistro, String numLocalSinistro, String pontoRefLocalSinistro,
+                 String cepLocalSinistro, String localidade, String ufLocalSinistro) {
+        this.endLocalSinistro = endLocalSinistro;
+        this.numLocalSinistro = numLocalSinistro;
+        this.pontoRefLocalSinistro = pontoRefLocalSinistro;
+        this.cepLocalSinistro = cepLocalSinistro;
+        this.localidade = localidade;
+        this.ufLocalSinistro = ufLocalSinistro;
+    }
+	
+	public Local(){}
+
+    public String getEndLocalSinistro() {
+        return endLocalSinistro;
     }
 
-    public static void setRua(String rua) {
-        Local.rua = rua;
+    public void setEndLocalSinistro(String endLocalSinistro) {
+        this.endLocalSinistro = endLocalSinistro;
     }
 
-    public static String getNumero() {
-        return numero;
+    public String getNumLocalSinistro() {
+        return numLocalSinistro;
     }
 
-    public static void setNumero(String numero) {
-        Local.numero = numero;
+    public void setNumLocalSinistro(String numLocalSinistro) {
+        this.numLocalSinistro = numLocalSinistro;
     }
 
-    public static String getBairro() {
-        return bairro;
+    public String getPontoRefLocalSinistro() {
+        return pontoRefLocalSinistro;
     }
 
-    public static void setBairro(String bairro) {
-        Local.bairro = bairro;
+    public void setPontoRefLocalSinistro(String pontoRefLocalSinistro) {
+        this.pontoRefLocalSinistro = pontoRefLocalSinistro;
     }
 
-    public static String getCep() {
-        return cep;
+    public String getCepLocalSinistro() {
+        return cepLocalSinistro;
     }
 
-    public static void setCep(String cep) {
-        Local.cep = cep;
+    public void setCepLocalSinistro(String cepLocalSinistro) {
+        this.cepLocalSinistro = cepLocalSinistro;
+    }
+
+    public String getLocalidade() {
+        return localidade;
+    }
+
+    public void setLocalidade(String localidade) {
+        this.localidade = localidade;
+    }
+
+    public String getUfLocalSinistro() {
+        return ufLocalSinistro;
+    }
+
+    public void setUfLocalSinistro(String ufLocalSinistro) {
+        this.ufLocalSinistro = ufLocalSinistro;
     }
 }
+

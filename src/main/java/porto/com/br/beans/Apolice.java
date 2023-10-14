@@ -3,16 +3,18 @@ package porto.com.br.beans;
 public class Apolice {
 	
     private String tipoApolice;
-    private int codApolice;
+    private String codApolice;
     private String coberturaApolice;
     private int idApolice;
     
-    public Apolice(String tipoApolice, int codApolice, String coberturaApolice, int idApolice) {
+    public Apolice(String tipoApolice, String codApolice, String coberturaApolice, int idApolice) {
         this.tipoApolice = tipoApolice;
         this.codApolice = codApolice;
         this.coberturaApolice = coberturaApolice;
         this.idApolice = idApolice;
     }
+    
+    public Apolice() {}
 
     // Métodos getters e setters
     public String getTipoApolice() {
@@ -23,11 +25,11 @@ public class Apolice {
         this.tipoApolice = tipoApolice;
     }
 
-    public int getCodApolice() {
+    public String getCodApolice() {
         return codApolice;
     }
 
-    public void setCodApolice(int codApolice) {
+    public void setCodApolice(String codApolice) {
         this.codApolice = codApolice;
     }
 

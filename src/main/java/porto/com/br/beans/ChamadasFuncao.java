@@ -69,9 +69,10 @@ public class ChamadasFuncao {
         
         String veiculo = scan.next();
         
-        Chamado chamado = new Chamado(null, null, tipoSinistro, descricaoChamado, documentoSegurado);
-          
-        chamadoDAO.insereChamado(chamado, descricaoChamado);
+        Chamado chamado = new Chamado();//arrumar
+        
+        int idLocalSinistro = 1;
+        chamadoDAO.insereChamado(chamado, descricaoChamado, idApolice, idLocalSinistro); 
 
         System.out.println("Chamado aberto com sucesso! Em breve retornaremos com atualizações");
         chamadoDAO.fechaConexao();

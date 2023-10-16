@@ -15,8 +15,8 @@ public class LocalController {
 	@POST
 	public Response adicionaLocalSinistro(Local local) {
 		
-		//localDao.insereLocal(local);
-		//localDao.fechaConexao();
+		localDao.insereLocal(local);
+		localDao.fechaConexao();
 		return Response.status(Response.Status.CREATED).build();
 		
 	}

@@ -5,35 +5,37 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Chamado {
-	
-	@JsonProperty("tipo")
+    @JsonProperty("tipo")
     private int tipoSinistro;
-	
-	@JsonProperty
+
+    @JsonProperty("descricaoChamado")
     private String descricaoChamado;
-	
-	@JsonProperty
+
+    @JsonProperty("documentoSegurado")
     private String documentoSegurado;
-	
-	@JsonProperty
+
+    @JsonProperty("idApoliceSeguro")
+    private int idApoliceSeguro;
+    
+    @JsonProperty("idLocalSinistro")
+    private int idLocalSinistro;
+    
+    @JsonProperty("dataSinistro")
     private Date horaAtual;
 
     public Chamado() {
     }
 
-    public Chamado(int tipoSinistro, String descricaoChamado, String documentoSegurado, Date horaAtual) {
+    public Chamado(int tipoSinistro, String descricaoChamado, String documentoSegurado, int idApoliceSeguro, int idLocalSinistro, Date horaAtual) {
         this.tipoSinistro = tipoSinistro;
         this.descricaoChamado = descricaoChamado;
         this.documentoSegurado = documentoSegurado;
+        this.idApoliceSeguro = idApoliceSeguro;
+        this.idLocalSinistro = idLocalSinistro;
         this.horaAtual = horaAtual;
     }
 
-    public Chamado(Object object, Object object2, int tipoSinistro2, String descricaoChamado2,
-			String documentoSegurado2) {
-		
-	}
-
-	public int getTipoSinistro() {
+    public int getTipoSinistro() {
         return tipoSinistro;
     }
 
@@ -55,6 +57,22 @@ public class Chamado {
 
     public void setDocumentoSegurado(String documentoSegurado) {
         this.documentoSegurado = documentoSegurado;
+    }
+
+    public int getIdApoliceSeguro() {
+        return idApoliceSeguro;
+    }
+
+    public void setIdApoliceSeguro(int idApoliceSeguro) {
+        this.idApoliceSeguro = idApoliceSeguro;
+    }
+
+    public int getIdLocalSinistro() {
+        return idLocalSinistro;
+    }
+
+    public void setIdLocalSinistro(int idLocalSinistro) {
+        this.idLocalSinistro = idLocalSinistro;
     }
 
     public Date getHoraAtual() {

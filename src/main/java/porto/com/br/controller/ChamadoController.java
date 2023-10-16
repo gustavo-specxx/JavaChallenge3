@@ -19,13 +19,14 @@ public class ChamadoController {
 	
 	//, @PathParam("documentoSegurado") String documentoSegurado
 	@POST
-	public Response adicionarChamado(Chamado chamado ) {
+	public Response adicionarChamado(Chamado chamado,@PathParam("idLocalSinistro") int idLocalSinistro
+			,@PathParam("idApoliceSeguro") int idApoliceSeguro 
+			,@PathParam("documentoSegurado") String documentoSegurado) {
 		
-		chamadoDAO.insereChamado(chamado, "45633416813");
+		chamadoDAO.insereChamado(chamado, documentoSegurado, idLocalSinistro,idApoliceSeguro);
 		chamadoDAO.fechaConexao();
 		
 		return Response.status(Response.Status.CREATED).build();
 	}
-
 
 }

@@ -12,7 +12,7 @@ import porto.com.br.beans.Chamado;
 public class ChamadoDAO {
     Connection conn = new ConnectionFactory().criaConexao();
     
-    public void insereChamado(Chamado chamado, String documentoSegurado) {
+    public void insereChamado(Chamado chamado, String documentoSegurado, int id_apolice_seguro, int id_local_sinistro) {
         String sql = "insert into TB_PSG_ORDEM_SERVICO (ID_ORDEM_SERVICO"
 + "                                 ,TIPO_SINISTRO"
 + "                                 ,DATA_SINISTRO"
@@ -20,17 +20,26 @@ public class ChamadoDAO {
 + "                                 ,DESCRICAO_SINISTRO"
 + "                                 ,ID_APOLICE_SEGURO"
 + "                                 ,ID_LOCAL_SINISTRO)"
-+ "                                 VALUES(seq_id_ordem_servico.nextval,1,'12/10/2023',1,'Ai',1,1)";
-        
++ "                                 VALUES(seq_id_ordem_servico.nextval,?,?,?,?,?,?)";
+    	SeguradoDAO seguradoDAO =  new SeguradoDAO();
+
         try (//Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
              
-        	/*String desc_chamado = (chamado.getDescricaoChamado()!= null) ? chamado.getDescricaoChamado() : "CHAMADO";
+    
+        	
+        	String desc_chamado = (chamado.getDescricaoChamado()!= null) ? chamado.getDescricaoChamado() : "CHAMADO";
+        	
+        	 java.util.Date dataAtual = new java.util.Date();
+        	 java.sql.Date  dataInsert = new java.sql.Date(dataAtual.getTime());
         	
             pstmt.setInt(1, chamado.getTipoSinistro());
-            pstmt.setString(2, desc_chamado);
-            pstmt.setString(3, documentoSegurado); // Defina o documento do segurado aqui
-            */
+            pstmt.setDate(2, dataInsert); //data
+            pstmt.setInt(3,seguradoDAO.retornaIdSegurado(documentoSegurado));
+            pstmt.setString(4, desc_chamado); 
+            pstmt.setInt(5, id_apolice_seguro);
+            pstmt.setInt(6, id_local_sinistro);
+            
         	
             pstmt.executeUpdate();
         } catch (SQLException e) {

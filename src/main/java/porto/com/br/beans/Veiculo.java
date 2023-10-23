@@ -1,24 +1,32 @@
 package porto.com.br.beans;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Veiculo {
     private String nomeVeiculo;
     private int ano;
-    private double peso;
+    
+	@JsonProperty("PLACA_VEICULO")
     private String placa;
+	
     private double altura;
     private String chassi;
     private String especificacoesVeiculo; 
 	private String modeloVeiculo;
+    private int tipoCarga; 
+    private double pesoCarga;
     
-    public Veiculo(String nomeVeiculo, int ano, double peso, String placa, double altura, String chassi, String especificacoesVeiculo, String modeloVeiculo) {
+    public Veiculo(String nomeVeiculo, int ano, String placa, double altura, String chassi, String especificacoesVeiculo, String modeloVeiculo, int tipoCarga, double pesoCarga) {
         this.nomeVeiculo = nomeVeiculo;
         this.ano = ano;
-        this.peso = peso;
         this.placa = placa;
         this.altura = altura;
         this.chassi = chassi;
         this.especificacoesVeiculo = especificacoesVeiculo;
         this.modeloVeiculo = modeloVeiculo;
+        this.tipoCarga = tipoCarga;
+        this.pesoCarga = pesoCarga;
+
     }
     
     public Veiculo() {}
@@ -39,13 +47,7 @@ public class Veiculo {
         this.ano = ano;
     }
 
-    public double getPeso() {
-        return peso;
-    }
 
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
 
     public String getPlaca() {
         return placa;
@@ -93,4 +95,21 @@ public class Veiculo {
 	public void setEstadoVeiculo(String string) {
 		
 	}
+	
+    public int getTipoCarga() {
+        return tipoCarga;
+    }
+
+    public void setTipoCarga(int tipoCarga) {
+        this.tipoCarga = tipoCarga;
+    }
+    
+    public double getPesoCarga() {
+        return pesoCarga;
+    }
+
+    public void setPesoCarga (double pesoCarga) {
+        this.pesoCarga = pesoCarga;
+    }
+    
 }

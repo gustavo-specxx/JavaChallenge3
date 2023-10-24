@@ -8,6 +8,7 @@ import porto.com.br.beans.Chamado;
 import porto.com.br.beans.Local;
 import porto.com.br.beans.Veiculo;
 import porto.com.br.dao.*;
+import porto.com.br.service.ChamadoService;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
@@ -30,13 +31,17 @@ public class DAOTest {
         seguradoDAO = new SeguradoDAO();
         apoliceDAO = new ApoliceDAO();
         localDAO = new LocalDAO();
-    }	
+    }
     
     @Test
-    public void verificaVeiculoDAO() 
-    {
-    	Veiculo veiculo = veiculoDAO.selecionaVeiculoPelaPlaca("17355056000161", "KAL8923");
+    public void verificaDAOChamado() {
+    	
+    		ChamadoService servchamado = new ChamadoService();
+    	  ArrayList<Chamado> chamados = servchamado.retornaChamados("17355056000161");
+    	  System.out.println(chamados);
     }
+    
+   
     
     /*@Test
     public void verificaLocalDAO() {

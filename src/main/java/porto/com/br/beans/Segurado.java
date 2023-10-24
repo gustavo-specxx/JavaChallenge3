@@ -12,8 +12,6 @@ public class Segurado {
 	@JsonProperty("DOCUMENTO_SEGURADO")
     private  String cpf;
 	
-	/*@JsonProperty
-	private  Local umLocal;*/
 
     public Segurado(String nomeSegurado, String cpf) {
         this.nomeSegurado = nomeSegurado;
@@ -32,15 +30,6 @@ public class Segurado {
     public  String getCpf() {
         return cpf;
     }
-
-	/*public  Local getUmLocal() {
-		return umLocal;
-	}
-
-	public static void setUmLocal(Local umLocal) {
-		this.umLocal = umLocal;
-	}
-	*/
 	
 	public void setNomeSegurado(String nomeSegurado) {
 		this.nomeSegurado = nomeSegurado;

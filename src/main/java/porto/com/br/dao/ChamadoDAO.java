@@ -48,13 +48,7 @@ public class ChamadoDAO {
     }
 
 
-    private Connection getConnection() {
-		
-		return null;
-	}
-
-
-	public ArrayList<Chamado> retornaChamados(String doctoSegurado) {
+    public ArrayList<Chamado> retornaChamados(String doctoSegurado) {
         ArrayList<Chamado> chamados = new ArrayList<>();
 
         String sqlSelect = "SELECT * FROM tb_psg_ordem_servico WHERE docto_segurado = ?";

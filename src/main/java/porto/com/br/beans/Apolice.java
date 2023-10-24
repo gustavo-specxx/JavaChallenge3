@@ -16,7 +16,6 @@ public class Apolice {
     
     public Apolice() {}
 
-    // Métodos getters e setters
     public String getTipoApolice() {
         return tipoApolice;
     }

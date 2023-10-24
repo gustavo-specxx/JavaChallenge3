@@ -26,8 +26,7 @@ public class ChamadasFuncao {
             String decisao = scan.next();
             
             if(decisao.equalsIgnoreCase("N")) {
-                // Retornar ao menu
-                scan.close(); // Fechar o scanner
+                scan.close(); 
                 return;
             }
         }

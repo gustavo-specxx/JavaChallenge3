@@ -7,11 +7,7 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 	
 	public Connection criaConexao() {
-		
-		/*String url = "jdbc:h2:./banco/db;AUTO_SERVER=TRUE;";
-		String log = "sa";
-		String senha = "";*/
-		
+				
 		String url = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
 		String log = "rm97510";
 		String senha = "011003";

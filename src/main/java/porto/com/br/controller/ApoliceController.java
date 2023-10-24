@@ -4,9 +4,12 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import porto.com.br.beans.Apolice;
 import porto.com.br.service.ApoliceService;
+
+import java.util.ArrayList;
 
 @Path("apolice")
 public class ApoliceController {

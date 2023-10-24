@@ -7,6 +7,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import porto.com.br.beans.Segurado;
 import porto.com.br.service.SeguradoService;
+import javax.ws.rs.core.MediaType;
 
 @Path("segurado")
 public class SeguradoController {

@@ -7,6 +7,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import porto.com.br.beans.Veiculo;
 import porto.com.br.service.VeiculoService;
+import javax.ws.rs.core.MediaType;
 
 @Path("veiculo")
 public class VeiculoController {

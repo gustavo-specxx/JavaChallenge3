@@ -61,4 +61,9 @@ public class SeguradoDAO {
 
 	        return segurado;
 	    }
+
+		public void fechaConexao() {
+			
+			
+		}
 	}

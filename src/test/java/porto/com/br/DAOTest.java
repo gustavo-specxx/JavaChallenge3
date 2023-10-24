@@ -32,6 +32,12 @@ public class DAOTest {
         localDAO = new LocalDAO();
     }	
     
+    @Test
+    public void verificaVeiculoDAO() 
+    {
+    	Veiculo veiculo = veiculoDAO.selecionaVeiculoPelaPlaca("17355056000161", "KAL8923");
+    }
+    
     /*@Test
     public void verificaLocalDAO() {
     	//Local local = new Local("Rua Arlindo Nogueira",null,"(Zona Norte) - até 1005/1006","64000290","Teresina","PI" );

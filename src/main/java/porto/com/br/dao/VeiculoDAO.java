@@ -44,15 +44,17 @@ public class VeiculoDAO {
             selectVeiculos.setString(2,PlacaVeiculo);
 
             ResultSet rs = selectVeiculos.executeQuery();
+            
+            System.out.println("aaa");
 
             while (rs.next()) {
-                veiculo.setPlaca(rs.getString("PLACA_VEICULO"));
+             /*   veiculo.setPlaca(rs.getString("PLACA_VEICULO"));
                 veiculo.setModeloVeiculo(rs.getString("MODELO_VEICULO"));
                 veiculo.setEspecificacoesVeiculo(rs.getString("ESPECIFICACOES_VEICULO"));
                 veiculo.setAltura(rs.getDouble("ALTURA_VEICULO"));
                 veiculo.setTipoCarga(rs.getInt("TIPO_CARGA"));
                 veiculo.setPesoCarga(rs.getDouble("PESO_CARGA"));
-                
+                */
                //  veiculo = new Veiculo(PlacaVeiculo, 0, 0, PlacaVeiculo, 0, documentoSegurado, PlacaVeiculo, sqlSelect, 0, 0);
             
                  veiculo = new Veiculo(".", 0, rs.getString("PLACA_VEICULO"), rs.getDouble("ALTURA_VEICULO")
@@ -67,6 +69,9 @@ public class VeiculoDAO {
         
         return veiculo;
     }
+    
+    
+  //  public void alteraCargaVeiculo() {}
     /*public void registraVeiculo(Veiculo veiculo, int idSegurado) {
         String sqlInsert = "INSERT INTO tb_psg_veiculo (placa_veiculo, estado_veiculo, especificacoes_veiculo, TB_PSG_SEGURADO_ID_SEGURADO) VALUES (?, ?, ?, ?)";
         

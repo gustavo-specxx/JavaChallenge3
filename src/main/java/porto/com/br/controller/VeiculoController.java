@@ -23,8 +23,7 @@ public class VeiculoController {
 			,@PathParam("PLACA_VEICULO") String PLACA_VEICULO
 			) {
 		
-		Response.Status status = null;
-		
+		Response.Status status = null;	
 	
 		Veiculo veiculo = veiculoDAO.selecionaVeiculoPelaPlaca(DOCUMENTO_SEGURADO, PLACA_VEICULO);
 

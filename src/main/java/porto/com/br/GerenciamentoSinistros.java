@@ -21,7 +21,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 public class GerenciamentoSinistros{
 	
-	 public static final String BASE_URI = "http://localhost:8083/";
+	 public static final String BASE_URI = "http://localhost:8080/";
 
 
     public static HttpServer startServer() {

@@ -12,8 +12,8 @@ public class ChamadoService {
         chamadoDAO = new ChamadoDAO();
     }
 
-    public void insereChamado(Chamado chamado, String documentoSegurado, int idApolice, int idLocalSinistro) {
-        chamadoDAO.insereChamado(chamado, documentoSegurado, idApolice, idLocalSinistro);
+    public void insereChamado(Chamado chamado/*, String documentoSegurado, int idApolice, int idLocalSinistro*/) {
+        chamadoDAO.insereChamado(chamado/*, documentoSegurado, idApolice, idLocalSinistro*/);
     }
 
     public int validaChamado(String documentoSegurado) {

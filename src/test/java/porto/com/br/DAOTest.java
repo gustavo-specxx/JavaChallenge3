@@ -9,6 +9,7 @@ import porto.com.br.beans.Local;
 import porto.com.br.beans.Veiculo;
 import porto.com.br.dao.*;
 import porto.com.br.service.ChamadoService;
+import porto.com.br.service.VeiculoService;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class DAOTest {
     private SeguradoDAO seguradoDAO;
     private ApoliceDAO apoliceDAO;
     private LocalDAO localDAO;
+    private VeiculoService veiculoservice;
     
     
 
@@ -31,10 +33,20 @@ public class DAOTest {
         seguradoDAO = new SeguradoDAO();
         apoliceDAO = new ApoliceDAO();
         localDAO = new LocalDAO();
+        veiculoservice = new VeiculoService();
     }
     
     @Test
     public void verificaDAOChamado() {
+    	
+		ChamadoService servchamado = new ChamadoService();
+		Chamado chamado = new Chamado(1, "AAAAAAAA", "17355056000161", 7, 6, null);
+		servchamado.insereChamado(chamado, "17355056000161", 7, 6);
+}
+    
+    
+    /* @Test
+     public void verificaDAOChamado() {
     	
     		ChamadoService servchamado = new ChamadoService();
     	  ArrayList<Chamado> chamados = servchamado.retornaChamados("17355056000161");
@@ -43,7 +55,7 @@ public class DAOTest {
     
    
     
-    /*@Test
+     @Test
     public void verificaLocalDAO() {
     	//Local local = new Local("Rua Arlindo Nogueira",null,"(Zona Norte) - até 1005/1006","64000290","Teresina","PI" );
     	
@@ -58,8 +70,8 @@ public class DAOTest {
     public void verificaRetornoID() {
     	seguradoDAO.retornaIdSegurado("17355056000161");
     	
-    }
-    @Test
+    }*/
+     /*  @Test
     public void testApoliceDAO() {
         // Teste os métodos da classe VeiculoDAO
 
@@ -83,16 +95,38 @@ public class DAOTest {
         
        
         
-    }
+    }*/
         
-      @Test
-    public void testVeiculoDAO() {
+    
+   /* @Test
+   public void testVeiculoDAO() {
+       // Teste os métodos da classe VeiculoDAO
+
+       // Teste o método de inserção
+       
+     //  ArrayList<Veiculo> veiculos = new ArrayList<>();
+       
+    	Veiculo veiculos;
+       veiculos = veiculoservice.selecionaVeiculoPelaPlaca("17355056000161", "KAL8923");
+       
+       /*for(Veiculo veiculo : veiculos) {
+           System.out.println("===========================");
+           System.out.println("Placa......: " + veiculo.getPlaca());
+           System.out.println("Modelo.....: " + veiculo.getModeloVeiculo());
+           System.out.println("Especificações.:" + veiculo.getEspecificacoesVeiculo());
+       }
+       
+    }
+       */
+    /* @Test
+    public void testVeiculoDAOaa() {
         // Teste os métodos da classe VeiculoDAO
 
         // Teste o método de inserção
         
         ArrayList<Veiculo> veiculos = new ArrayList<>();
-        veiculos = veiculoDAO.listaVeiculosApolice("17355056000161"); 
+        
+        veiculos = veiculoservice.selecionaVeiculoPelaPlaca("17355056000161", "KAL8923");
         for(Veiculo veiculo : veiculos) {
             System.out.println("===========================");
             System.out.println("Placa......: " + veiculo.getPlaca());
@@ -100,7 +134,7 @@ public class DAOTest {
             System.out.println("Especificações.:" + veiculo.getEspecificacoesVeiculo());
         }
         
-        /*Veiculo veiculo = new Veiculo();
+        Veiculo veiculo = new Veiculo();
         veiculo.setPlaca("ABC123");
         veiculo.setNomeVeiculo("Novo");
         veiculo.setEspecificacoesVeiculo("Especificações do veículo de teste");
@@ -109,7 +143,7 @@ public class DAOTest {
 
     }
 
-   @Test
+     /* @Test
     public void testChamadoDAO() {
            
         Chamado chamado = new Chamado();

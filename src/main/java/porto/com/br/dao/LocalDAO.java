@@ -13,13 +13,13 @@ public class LocalDAO {
 	 public void insereLocal(Local local) {
 	        String sql = "INSERT INTO TB_PSG_LOCAL_SINISTRO "
 	        		+ "(ID_LOCAL_SINISTRO, "
-	        		+ "END_LOCAL_SINISTRO "
+	        		+ "END_LOCAL_SINISTRO, "
 	        		+ "NUM_LOCAL_SINISTRO, "
 	        		+ "PONTO_REF_LOCAL_SINISTRO, "
 	        		+ "CEP_LOCAL_SINISTRO, "
 	        		+ "LOCALIDADE, "
 	        		+ "UF_LOCAL_SINISTRO) " 
-	        		+ " VALUES (seq_id_local_sinistro.nextval, ?, ?, ?, ?, ?, ?)) ";
+	        		+ " VALUES (seq_id_local_sinistro.nextval, ?, ?, ?, ?, ?, ?)";
 
 	        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	            pstmt.setString(1, local.getEndLocalSinistro());

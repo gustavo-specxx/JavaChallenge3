@@ -45,11 +45,9 @@ public class VeiculoDAO {
 
             ResultSet rs = selectVeiculos.executeQuery();
             
-            System.out.println("aaa");
-
             while (rs.next()) {
                  veiculo = new Veiculo(".", 0, rs.getString("PLACA_VEICULO"), rs.getDouble("ALTURA_VEICULO")
-                		 ,".", rs.getString("ESPECIFICACOES_VEICULO"), ".", rs.getInt("TIPO_CARGA"), rs.getDouble("PESO_CARGA"));
+                		 ,".", rs.getString("ESPECIFICACOES_VEICULO"), ".", rs.getString("TIPO_CARGA"), rs.getDouble("PESO_CARGA"));
             }
             
             selectVeiculos.close();

@@ -21,9 +21,21 @@ public class ChamadoController {
     public Response adicionarChamado(Chamado chamado, @PathParam("idLocalSinistro") int idLocalSinistro,
                                       @PathParam("idApoliceSeguro") int idApoliceSeguro,
                                       @PathParam("documentoSegurado") String documentoSegurado) {
-        chamadoService.insereChamado(chamado, documentoSegurado, idLocalSinistro, idApoliceSeguro);
-        chamadoService.fechaConexao();
-        return Response.status(Response.Status.CREATED).build();
+        
+    	
+    	try {
+    	chamadoService.insereChamado(chamado/*, documentoSegurado, idLocalSinistro, idApoliceSeguro*/);
+    	return Response.status(Response.Status.CREATED).build();
+
+    	}catch(RuntimeException e) {
+    		System.out.println(e.getMessage());
+    		e.printStackTrace();
+    		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+    	}
+    	
+
+        
+       // chamadoService.fechaConexao();
     }
     
     

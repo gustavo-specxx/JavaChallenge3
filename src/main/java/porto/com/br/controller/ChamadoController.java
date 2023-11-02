@@ -44,7 +44,8 @@ public class ChamadoController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response retornaChamadosPorSegurado(@PathParam("DOCUMENTO_SEGURADO") String DOCUMENTO_SEGURADO) {
         Response.Status status = null;
-
+        
+        try {
         ArrayList<Chamado> chamados = chamadoService.retornaChamados(DOCUMENTO_SEGURADO);
 
         if (chamados.isEmpty()) {
@@ -52,7 +53,13 @@ public class ChamadoController {
         } else {
             status = Response.Status.OK;
         }
-
-        return Response.status(status).entity(chamados).build();
+        return Response.status(status).build();
+        
+       }catch(RuntimeException e) {
+    	System.out.println(e.getMessage());
+    	e.printStackTrace();
+        return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+       }
     }
+    
    }

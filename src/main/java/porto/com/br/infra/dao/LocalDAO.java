@@ -37,6 +37,7 @@ public class LocalDAO {
 	        }
 	    }
 	 
+	 
 	    public void fechaConexao() {
 	        try {
 	            conn.close();

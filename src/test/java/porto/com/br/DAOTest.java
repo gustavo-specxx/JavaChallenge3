@@ -7,8 +7,10 @@ import porto.com.br.beans.Apolice;
 import porto.com.br.beans.Chamado;
 import porto.com.br.beans.Local;
 import porto.com.br.beans.Veiculo;
+import porto.com.br.infra.ViaCep.ViaCep;
 import porto.com.br.infra.dao.*;
 import porto.com.br.service.ChamadoService;
+import porto.com.br.service.LocalService;
 import porto.com.br.service.VeiculoService;
 
 import static org.junit.Assert.*;
@@ -34,16 +36,30 @@ public class DAOTest {
         apoliceDAO = new ApoliceDAO();
         localDAO = new LocalDAO();
         veiculoservice = new VeiculoService();
+        LocalService localService = new LocalService();
     }
     
     @Test
+    public void retornoViacep() {
+        ViaCep via = new ViaCep();
+        Local local = null;
+        
+    	local = via.retornaLocalPesquisa("02123040");
+    
+    	System.out.println(local.getEndLocalSinistro());
+    	
+    	
+    	
+    }
+    
+   /* @Test
     public void verificaDAOChamado() {
     	
 		ChamadoService servchamado = new ChamadoService();
 		Chamado chamado = new Chamado(1, "AAAAAAAA", "17355056000161", 7, 6, null);
 		servchamado.insereChamado(chamado, "17355056000161", 7, 6);
 }
-    
+    */
     
     /* @Test
      public void verificaDAOChamado() {

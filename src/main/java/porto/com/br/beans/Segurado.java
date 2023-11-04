@@ -18,11 +18,6 @@ public class Segurado {
         this.cpf = cpf;
     }
     
-    
-   // public Segurado() {};
-
-
-
     public  String getNomeSegurado() {
         return nomeSegurado;
     }

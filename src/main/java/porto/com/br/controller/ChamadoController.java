@@ -18,24 +18,25 @@ public class ChamadoController {
     }
 
     @POST
-    public Response adicionarChamado(Chamado chamado, @PathParam("idLocalSinistro") int idLocalSinistro,
-                                      @PathParam("idApoliceSeguro") int idApoliceSeguro,
-                                      @PathParam("documentoSegurado") String documentoSegurado) {
+    public Response adicionarChamado(Chamado chamado,
+    								 @PathParam("idLocalSinistro") int idLocalSinistro,
+                                     @PathParam("idApoliceSeguro") int idApoliceSeguro,
+                                     @PathParam("documentoSegurado") String documentoSegurado) {
         
     	
     	try {
-    	chamadoService.insereChamado(chamado/*, documentoSegurado, idLocalSinistro, idApoliceSeguro*/);
-    	return Response.status(Response.Status.CREATED).build();
-
+    		
+	    	chamadoService.insereChamado(chamado);
+	    	chamadoService.fechaConexao();
+	    	
+	    	return Response.status(Response.Status.CREATED).build();
+	    	
     	}catch(RuntimeException e) {
     		System.out.println(e.getMessage());
     		e.printStackTrace();
     		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
     	}
-    	
-
         
-       // chamadoService.fechaConexao();
     }
     
     
@@ -43,22 +44,28 @@ public class ChamadoController {
     @Path("/{DOCUMENTO_SEGURADO}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response retornaChamadosPorSegurado(@PathParam("DOCUMENTO_SEGURADO") String DOCUMENTO_SEGURADO) {
-        Response.Status status = null;
+        
+    	Response.Status status = null;
         
         try {
-        ArrayList<Chamado> chamados = chamadoService.retornaChamados(DOCUMENTO_SEGURADO);
-
-        if (chamados.isEmpty()) {
-            status = Response.Status.NOT_FOUND;
-        } else {
-            status = Response.Status.OK;
-        }
-        return Response.status(status).build();
+        	
+	        ArrayList<Chamado> chamados = chamadoService.retornaChamados(DOCUMENTO_SEGURADO);
+	
+	        if (chamados.isEmpty()) {
+	            status = Response.Status.NOT_FOUND;
+	        } else {
+	            status = Response.Status.OK;
+	        }
+	        
+	        chamadoService.fechaConexao();
+	        return Response.status(status).build();
         
        }catch(RuntimeException e) {
-    	System.out.println(e.getMessage());
-    	e.printStackTrace();
-        return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+    	   
+    	   System.out.println(e.getMessage());
+    	   e.printStackTrace();
+    	   return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+       
        }
     }
     

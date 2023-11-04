@@ -22,17 +22,27 @@ public class Chamado {
     
     @JsonProperty("dataSinistro")
     private Date horaAtual;
+    
+    @JsonProperty("idVeiculo")
+    private int idVeiculo;
+    
+    @JsonProperty("idGuincho")
+    private int idGuincho;
+    
 
     public Chamado() {
     }
 
-    public Chamado(int tipoSinistro, String descricaoChamado, String documentoSegurado, int idApoliceSeguro, int idLocalSinistro, Date horaAtual) {
+    public Chamado(int tipoSinistro, String descricaoChamado, String documentoSegurado, int idApoliceSeguro, int idLocalSinistro, Date horaAtual, int idVeiculo, int idGuincho) {
         this.tipoSinistro = tipoSinistro;
         this.descricaoChamado = descricaoChamado;
         this.documentoSegurado = documentoSegurado;
         this.idApoliceSeguro = idApoliceSeguro;
         this.idLocalSinistro = idLocalSinistro;
         this.horaAtual = horaAtual;
+        this.idVeiculo = idVeiculo;
+        this.idGuincho = idGuincho;
+
     }
 
     public int getTipoSinistro() {
@@ -82,4 +92,21 @@ public class Chamado {
     public void setHoraAtual(Date horaAtual) {
         this.horaAtual = horaAtual;
     }
-}
+    
+    
+    public int getIdVeiculo() {
+        return idVeiculo;
+    }
+
+    public void setIdVeiculo(int idVeiculo) {
+        this.idVeiculo = idVeiculo;
+    }
+    
+    public int getIdGuincho() {
+        return idGuincho;
+    }
+
+    public void setIdGuincho(int idGuincho) {
+        this.idGuincho = idGuincho;
+    }
+  }

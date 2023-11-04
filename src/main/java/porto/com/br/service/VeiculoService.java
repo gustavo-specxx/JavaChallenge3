@@ -1,7 +1,7 @@
 package porto.com.br.service;
 
 import porto.com.br.beans.Veiculo;
-import porto.com.br.dao.VeiculoDAO;
+import porto.com.br.infra.dao.VeiculoDAO;
 
 public class VeiculoService {
     private VeiculoDAO veiculoDAO;

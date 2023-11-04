@@ -1,4 +1,4 @@
-package porto.com.br.dao;
+package porto.com.br.infra.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,9 +13,7 @@ public class ConnectionFactory {
 		String senha = "011003";
 		
 		try {
-
 			return DriverManager.getConnection(url,log,senha);
-
 			
 		}catch(SQLException e) {
 			throw new RuntimeException(e.getMessage());

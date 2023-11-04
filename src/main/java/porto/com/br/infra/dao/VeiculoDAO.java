@@ -1,4 +1,4 @@
-package porto.com.br.dao;
+package porto.com.br.infra.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,6 +26,7 @@ public class VeiculoDAO {
                 + ",  tipv.altura_veiculo"
                 + ", veic.tipo_carga"
                 + ", veic.peso_carga"
+                + ", veic.num_chassi_veiculo"
                 + " from tb_psg_apolice_seguro apol"
                 + ",    tb_psg_veiculo veic"
                 + ",    tb_psg_veiculo_apolice veia"
@@ -47,7 +48,7 @@ public class VeiculoDAO {
             
             while (rs.next()) {
                  veiculo = new Veiculo(".", 0, rs.getString("PLACA_VEICULO"), rs.getDouble("ALTURA_VEICULO")
-                		 ,".", rs.getString("ESPECIFICACOES_VEICULO"), ".", rs.getString("TIPO_CARGA"), rs.getDouble("PESO_CARGA"));
+                		 ,rs.getString("NUM_CHASSI_VEICULO"), rs.getString("ESPECIFICACOES_VEICULO"), rs.getString("MODELO_VEICULO"), rs.getString("TIPO_CARGA"), rs.getDouble("PESO_CARGA"));
             }
             
             selectVeiculos.close();

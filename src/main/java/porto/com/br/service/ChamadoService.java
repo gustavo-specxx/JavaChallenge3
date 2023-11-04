@@ -1,7 +1,7 @@
 package porto.com.br.service;
 
 import porto.com.br.beans.Chamado;
-import porto.com.br.dao.ChamadoDAO;
+import porto.com.br.infra.dao.ChamadoDAO;
 
 import java.util.ArrayList;
 

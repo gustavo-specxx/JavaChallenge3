@@ -1,7 +1,7 @@
 package porto.com.br.service;
 
 import porto.com.br.beans.Apolice;
-import porto.com.br.dao.ApoliceDAO;
+import porto.com.br.infra.dao.ApoliceDAO;
 
 import java.util.ArrayList;
 

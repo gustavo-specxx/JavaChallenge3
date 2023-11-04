@@ -7,7 +7,7 @@ import porto.com.br.beans.Apolice;
 import porto.com.br.beans.Chamado;
 import porto.com.br.beans.Local;
 import porto.com.br.beans.Veiculo;
-import porto.com.br.dao.*;
+import porto.com.br.infra.dao.*;
 import porto.com.br.service.ChamadoService;
 import porto.com.br.service.VeiculoService;
 

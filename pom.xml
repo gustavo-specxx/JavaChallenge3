@@ -61,6 +61,12 @@
     		<artifactId>jersey-media-json-jackson</artifactId>
 		</dependency>
 		
+    <dependency>
+        <groupId>javax.ws.rs</groupId>
+        <artifactId>javax.ws.rs-api</artifactId>
+        <version>2.1</version> <!-- Adjust the version as needed -->
+    </dependency>
+
   <dependency>
     <groupId>com.oracle.database.jdbc</groupId>
     <artifactId>ojdbc8-production</artifactId>

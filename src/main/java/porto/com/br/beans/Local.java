@@ -24,6 +24,7 @@ public class Local {
 
     public Local(String endLocalSinistro, String numLocalSinistro, String pontoRefLocalSinistro,
                  String cepLocalSinistro, String localidade, String ufLocalSinistro) {
+    	
         this.endLocalSinistro = endLocalSinistro;
         this.numLocalSinistro = numLocalSinistro;
         this.pontoRefLocalSinistro = pontoRefLocalSinistro;

@@ -1,7 +1,7 @@
 package porto.com.br.service;
 
 import porto.com.br.beans.Local;
-import porto.com.br.dao.LocalDAO;
+import porto.com.br.infra.dao.LocalDAO;
 
 public class LocalService {
     private LocalDAO localDAO;

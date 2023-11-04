@@ -1,7 +1,7 @@
 package porto.com.br.service;
 
 import porto.com.br.beans.Segurado;
-import porto.com.br.dao.SeguradoDAO;
+import porto.com.br.infra.dao.SeguradoDAO;
 
 public class SeguradoService {
     private SeguradoDAO seguradoDAO;

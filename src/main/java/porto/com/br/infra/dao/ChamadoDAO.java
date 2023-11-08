@@ -1,4 +1,4 @@
-package porto.com.br.dao;
+package porto.com.br.infra.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,52 +12,52 @@ import porto.com.br.beans.Chamado;
 public class ChamadoDAO {
     Connection conn = new ConnectionFactory().criaConexao();
     
-    public void insereChamado(Chamado chamado, String documentoSegurado, int id_apolice_seguro, int id_local_sinistro) {
+    public void insereChamado(Chamado chamado/*, String documentoSegurado, int id_apolice_seguro, int id_local_sinistro*/) {
         String sql = "insert into TB_PSG_ORDEM_SERVICO (ID_ORDEM_SERVICO"
 + "                                 ,TIPO_SINISTRO"
 + "                                 ,DATA_SINISTRO"
 + "                                 ,ID_SEGURADO"
 + "                                 ,DESCRICAO_SINISTRO"
 + "                                 ,ID_APOLICE_SEGURO"
-+ "                                 ,ID_LOCAL_SINISTRO)"
-+ "                                 VALUES(seq_id_ordem_servico.nextval,?,?,?,?,?,?)";
++ "                                 ,ID_LOCAL_SINISTRO"
++ "									,STATUS_OS"
++ "								    ,ID_VEICULO"
++ "									,ID_GUINCHO)"
++ "                                 VALUES(seq_id_ordem_servico.nextval,?,?,?,?,?,?,1,?,?)";
+        
     	SeguradoDAO seguradoDAO =  new SeguradoDAO();
-
-        try (//Connection conn = getConnection();
+    	GuinchoDAO guinchoDAO = new GuinchoDAO();
+    	
+        try (
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
              
-    
-        	
         	String desc_chamado = (chamado.getDescricaoChamado()!= null) ? chamado.getDescricaoChamado() : "CHAMADO";
         	
-        	 java.util.Date dataAtual = new java.util.Date();
-        	 java.sql.Date  dataInsert = new java.sql.Date(dataAtual.getTime());
+        	java.util.Date dataAtual = new java.util.Date();
+        	java.sql.Date  dataInsert = new java.sql.Date(dataAtual.getTime());
         	
             pstmt.setInt(1, chamado.getTipoSinistro());
-            pstmt.setDate(2, dataInsert); //data
-            pstmt.setInt(3,seguradoDAO.retornaIdSegurado(documentoSegurado));
+            pstmt.setDate(2, dataInsert);
+            pstmt.setInt(3,seguradoDAO.retornaIdSegurado(chamado.getDocumentoSegurado()));
             pstmt.setString(4, desc_chamado); 
-            pstmt.setInt(5, id_apolice_seguro);
-            pstmt.setInt(6, id_local_sinistro);
+            pstmt.setInt(5, chamado.getIdApoliceSeguro());
+            pstmt.setInt(6, chamado.getIdLocalSinistro());
+            pstmt.setInt(7, chamado.getIdVeiculo());
+            pstmt.setInt(8, guinchoDAO.selecionaIdGuinchoEscolhido());
+
             
-        	
             pstmt.executeUpdate();
+            
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
 
-    private Connection getConnection() {
-		
-		return null;
-	}
-
-
-	public ArrayList<Chamado> retornaChamados(String doctoSegurado) {
+    public ArrayList<Chamado> retornaChamados(String doctoSegurado) {
         ArrayList<Chamado> chamados = new ArrayList<>();
 
-        String sqlSelect = "SELECT * FROM tb_psg_ordem_servico WHERE docto_segurado = ?";
+        String sqlSelect = "SELECT  FROM tb_psg_ordem_servico WHERE documento_segurado = ?";
 
         try {
             PreparedStatement selectChamado = conn.prepareStatement(sqlSelect);
@@ -72,15 +72,17 @@ public class ChamadoDAO {
             }
             
             selectChamado.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e.getMessage());
-        }
+        	} catch (SQLException e) {
+        		
+        		throw new RuntimeException(e.getMessage());
+        	}
 
         return chamados;
-    }
+    	}
 
     public int validaChamado(String documentoSegurado) {
-        String sqlSelect = "SELECT COUNT(1) FROM tb_psg_ordem_servico WHERE ID_SEGURADO = ? AND STATUS_OS != 'E'";
+    	
+        String sqlSelect = "SELECT COUNT(1) FROM tb_psg_ordem_servico WHERE ID_SEGURADO = ? AND STATUS_OS not in (1,2)";
         int existeChamadoAberto;
 
         try {
@@ -89,14 +91,21 @@ public class ChamadoDAO {
         	int idSegurado = seg.retornaIdSegurado(documentoSegurado);
         	
             PreparedStatement query = conn.prepareStatement(sqlSelect);
+            
             query.setInt(1, idSegurado);
+            
             ResultSet rs = query.executeQuery();
 
             while (rs.next()) {
+            	
                 existeChamadoAberto = rs.getInt(1);
+                
                 if (existeChamadoAberto == 0) {
+                	
                     return 0;
+                    
                 } else {
+                	
                     return 1;
                 }
             }
@@ -104,13 +113,17 @@ public class ChamadoDAO {
             throw new RuntimeException(e.getMessage());
         }
         return 0;
-    }
+    	}
 
     public void fechaConexao() {
         try {
+        	
             conn.close();
-        } catch (SQLException e) {
+            
+        	} catch (SQLException e) {
+        		
             throw new RuntimeException(e.getMessage());
-        }
+            
+        	}
     }
 }

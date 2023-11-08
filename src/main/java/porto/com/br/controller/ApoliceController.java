@@ -28,12 +28,14 @@ public class ApoliceController {
         ArrayList<Apolice> apolices = apoliceService.retornaApoliceSegurado(DOCUMENTO_SEGURADO);
 
         if (apolices.isEmpty()) {
+        	
             status = Response.Status.NOT_FOUND;
+            
         } else {
+        	
             status = Response.Status.OK;
         }
 
         return Response.status(status).entity(apolices).build();
     }
 }
-//att

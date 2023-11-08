@@ -13,10 +13,10 @@ public class Veiculo {
     private String chassi;
     private String especificacoesVeiculo; 
 	private String modeloVeiculo;
-    private int tipoCarga; 
-    private double pesoCarga;
+    private String tipoCarga; 
+    private Double pesoCarga;
     
-    public Veiculo(String nomeVeiculo, int ano, String placa, double altura, String chassi, String especificacoesVeiculo, String modeloVeiculo, int tipoCarga, double pesoCarga) {
+    public Veiculo(String nomeVeiculo, int ano, String placa, double altura, String chassi, String especificacoesVeiculo, String modeloVeiculo, String tipoCarga, Double pesoCarga) {
         this.nomeVeiculo = nomeVeiculo;
         this.ano = ano;
         this.placa = placa;
@@ -96,11 +96,11 @@ public class Veiculo {
 		
 	}
 	
-    public int getTipoCarga() {
+    public String getTipoCarga() {
         return tipoCarga;
     }
 
-    public void setTipoCarga(int tipoCarga) {
+    public void setTipoCarga(String tipoCarga) {
         this.tipoCarga = tipoCarga;
     }
     
@@ -108,7 +108,7 @@ public class Veiculo {
         return pesoCarga;
     }
 
-    public void setPesoCarga (double pesoCarga) {
+    public void setPesoCarga (Double pesoCarga) {
         this.pesoCarga = pesoCarga;
     }
     

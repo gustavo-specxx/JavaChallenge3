@@ -1,7 +1,7 @@
 package porto.com.br.service;
 
 import porto.com.br.beans.Chamado;
-import porto.com.br.dao.ChamadoDAO;
+import porto.com.br.infra.dao.ChamadoDAO;
 
 import java.util.ArrayList;
 
@@ -12,8 +12,8 @@ public class ChamadoService {
         chamadoDAO = new ChamadoDAO();
     }
 
-    public void insereChamado(Chamado chamado, String documentoSegurado, int idApolice, int idLocalSinistro) {
-        chamadoDAO.insereChamado(chamado, documentoSegurado, idApolice, idLocalSinistro);
+    public void insereChamado(Chamado chamado) {
+        chamadoDAO.insereChamado(chamado);
     }
 
     public int validaChamado(String documentoSegurado) {

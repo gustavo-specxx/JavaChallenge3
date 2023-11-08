@@ -1,4 +1,4 @@
-package porto.com.br.dao;
+package porto.com.br.infra.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

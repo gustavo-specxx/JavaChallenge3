@@ -1,7 +1,9 @@
 package porto.com.br.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Local {
 	
 	@JsonProperty("LOGRADOURO")
@@ -24,6 +26,7 @@ public class Local {
 
     public Local(String endLocalSinistro, String numLocalSinistro, String pontoRefLocalSinistro,
                  String cepLocalSinistro, String localidade, String ufLocalSinistro) {
+    	
         this.endLocalSinistro = endLocalSinistro;
         this.numLocalSinistro = numLocalSinistro;
         this.pontoRefLocalSinistro = pontoRefLocalSinistro;
